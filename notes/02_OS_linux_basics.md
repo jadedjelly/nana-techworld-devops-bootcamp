@@ -33,23 +33,18 @@
             - 3rd party programs you install
                 - the difference between /opt & /usr/local?
                     - Some applications don’t split their code / files in different places, so binaries in bin folder, etc (examples: IDEs (installed to /opt))
-
-[image usr/local vs opt]
-
-        - /var 
+![02_image1](assets/02_image1.png)
+        - /var
             - contains logs
-            - /var/logs contains syslog (everything you do on your machine is logged here)
+            - /var/logs contains syslogs (everything you do on the machine is logged here!)
             - /var/cache
                 - contains cached data from apps
 
-There’s also hidden files, these are used to prevent important data from being accidently deleted
+There's also hidden files in Linux, these are denoted with a . (dot) infront of their names:
+.gitignore
+.bashrc
+.bash_history
 
-Automatically created by programs & OS
+## Intro to CLI & Basic Commands
 
-they are denoted with a . (dot) infront of their names
 
-        - .gitignore
-
-        - .bashrc
-
-        - .bash_history
