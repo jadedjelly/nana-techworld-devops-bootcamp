@@ -1,13 +1,13 @@
-# Table of contents
-1. [Operating Systems & Linux Basics](#OperatingSystems&LinuxBasics)
+### Table of contents
+1. [Operating Systems & Linux Basics](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Operating-Systems-&-Linux-Basics)
 2. [Intro to CLI & basic cmds](#IntrotoCLI&basiccmds)
 
 
 
-## Operating Systems & Linux Basics <a id="OperatingSystems&LinuxBasics"></a>
+## Operating Systems & Linux Basics
 
 
-# Linux File System
+#### Linux File System
 
 - Hierarchical tree structure
     - / (root) is at the top, roots home dir is also located here
@@ -62,7 +62,7 @@
     .bash_history
     
 
-## Intro to CLI & basic cmds <a>name="#IntrotoCLI&basiccmds"</a>
+## Intro to CLI & basic cmds
 
 Nana is going over cd, ls, pwd, mkdir, etc
 
@@ -83,7 +83,7 @@ Nana is going over cd, ls, pwd, mkdir, etc
     - lsmem
         - to view data about ram
 
-# Package Manager - Install S/W
+## Package Manager - Install S/W
 
 - 9 times out of 10 done via a package manager (like apt, yum, etc)
 - rare cases you’ll do via a dpkg package
@@ -100,7 +100,7 @@ Also, a package manager will know exactly where to put the files (recall, opt vs
 
 Package managers also clean up everything, so when you go to delete an application it removes everything (sort of, there’s a switch you need to add to the line)
 
-### Demo
+#### Demo
 
 running apt on its own will display, all the sub commands available
 
@@ -154,7 +154,7 @@ They are very much alike, however apt is more user friendly (shows progress bars
 
 apt-get doesnt have a search function, unlike apt
 
-## repositories
+### repositories
 
 One of the 1st commands you should run, is:
 
@@ -191,7 +191,7 @@ The alternatives to using apt (for the purpose of installing apps that are not a
     - manual updates
     - small installation size
 
-# Users & permissions - P1
+## Users & permissions - P1
 
 3x types of Users
 
@@ -211,7 +211,7 @@ Always 1x Root user per machine
 
 (Nana goes into reasons why there are 1x root user on a laptop vs a server)
 
-## Groups & permissions
+### Groups & permissions
 
 - 2 levels of Permissions
     - User level
@@ -260,7 +260,7 @@ USERNAME : PASSWORD : UID : GID : GECOS : HOMEDIR : SHELL
 - /etc/shadow
 - /etc/group
 
-## Managing Users
+### Managing Users
 
 Dont edit access control files, use the dedicated commands
 
