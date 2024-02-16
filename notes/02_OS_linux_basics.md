@@ -1,6 +1,6 @@
 ### Table of contents
 1. [Operating Systems & Linux Basics](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Operating-Systems-&-Linux-Basics)
-2. [Intro to CLI & basic cmds](#IntrotoCLI&basiccmds)
+2. [Intro to CLI & basic cmds](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#intro-to-cli--basic-cmds)
 
 
 
