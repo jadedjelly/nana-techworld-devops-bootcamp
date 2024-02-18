@@ -104,7 +104,7 @@ Package managers also clean up everything, so when you go to delete an applicati
 
 running apt on its own will display, all the sub commands available
 
-        ![02_image3](assets/02_image3.png)
+![02_image3](assets/02_image3.png)
 
 ```bash
 apt search java
@@ -170,7 +170,7 @@ To see what repos linux is using , run the below:
 cat /etc/apt/sources.list.d/official-package-repositories.list
 ```
 
-        ![02_image4](assets/02_image4.png)
+![02_image4](assets/02_image4.png)
 
 The alternatives to using apt (for the purpose of installing apps that are not available from apt)
 
@@ -233,7 +233,7 @@ Access Control Files
 
 When we cant this file, each line reps a user (see below)
 
-        ![02_image5](assets/02_image5.png)
+![02_image5](assets/02_image5.png)
 
 Taking my account as an example:
 
@@ -408,7 +408,7 @@ Every program has 3 built-in streams
 - STDOUT (1) = Standard Output
 - STDERR (2) = Standard Error
 
-        ![02_image6](assets/02_image6.png)
+![02_image6](assets/02_image6.png)
 
 as you know, when a command runs successfully, its error code is 0, when it doesnt it’s error code (depending on what you were trying to do) will have any code excluding 0
 
@@ -693,17 +693,17 @@ NOTE: Remove htop
 
 The output from running the script is as below:
 
-        ![02_image9](assets/02_image9.png)
+![02_image9](assets/02_image9.png)
 
 This output is fine, as the logs were aimed at the sudo apt line (where we would get the wall of it installing), then if it fails, we would get the output in the file we specified (…fail_log.log)
 
 Catting the package_install_log.log we see the below (recall this is the wall of installation info)
 
-        ![02_image10](assets/02_image10.png)
+![02_image10](assets/02_image10.png)
 
 to get the error output, we change the package to something that doesnt exist
 
-        ![02_image11](assets/02_image11.png)
+![02_image11](assets/02_image11.png)
 
 The tutor goes on to say that this next part coming up will be something that appears in the real world that will be frustrating
 
