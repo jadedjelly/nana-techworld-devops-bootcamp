@@ -5,22 +5,28 @@
    - [Package Manager - Demo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Demo)
 4. [Snap vs apt](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Snap-vs-apt)
 5. [Users & permissions - Part1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Users-&-permissions---P1)
-7. [Groups & Permissions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Groups-&-permissions)
-8. [File Ownership & Permissions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#File-Ownership-&-Permissions)
-6. [User Management in practice](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#User-Management-in-Practice)
-8. [Managing Users](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Managing-Users)
-9. [Create a new group](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Create-a-new-group)
-10. [Basic Linux Commands - Pipes & redirects](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Basic-Linux-Commands---Pipes-&-redirects)
-11. [Standard I/O](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Standard-input-and-output)
-12. [Intro to Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Intro-to-Shell-Scripting)
-13. [Bash Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Bash-Scripting)
+6. [Groups & Permissions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Groups-&-permissions)
+7. [File Ownership & Permissions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#File-Ownership-&-Permissions)
+8. [User Management in practice](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#User-Management-in-Practice)
+9. [Managing Users](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Managing-Users)
+10. [Create a new group](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Create-a-new-group)
+11. [Basic Linux Commands - Pipes & redirects](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Basic-Linux-Commands---Pipes-&-redirects)
+12. [Standard I/O](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Standard-input-and-output)
+13. [Intro to Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Intro-to-Shell-Scripting)
+14. [Bash Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Bash-Scripting)
     - [Variables](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Variables)
     - [Math Function](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md##Math-Function)
     - [Using variables in math expressions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Using-variables-in-math-expressions)
     - [If-statements](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#If-statements)
     - [Exit Codes](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Exit-Codes)
     - [While Loops](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#While-Loops)
-14. [Nana - Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Nana---Shell-Scripting)
+15. [Nana - Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Nana---Shell-Scripting)
+    - [Writing Shell Scripts - P1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P1)
+    - [Writing Shell Scripts - P2](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P2)
+    - [Writing Shell Scripts - P3](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P3)
+    - [Writing Shell Scripts - P4](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P4)
+    - [Writing Shell Scripts - P5](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P5)
+16. [Enviornment Variables](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Enviornment-Variables)
 
 
 ## Operating Systems & Linux Basics
@@ -94,7 +100,9 @@
      - cd ~ (send you to your home dir)
      - mkdir {new dir name} (make directory)
          - can go further, and crate complex structures like: mkdir -p ~/ubuntu/{14,16,18,20,22}.04/{gold.current}
+
 ![02_image12](assets/02_image12.png)
+
      -  touch {name of file} - creates a file
          - nano {name of file} / vi  {name of file} / vim  {name of file} - create a file & open it in the listed editors 
      - rm {file name} - removes a file (deletes it)
@@ -309,6 +317,7 @@ current umask value affects the default permissions of that wd = 002 (all can re
 |  | Can either use octal (761) or symbolic (o+x) |
 |  | If we wanted to change the permission for file_perms to be read&write for everyone we would use 
 chmod 666 file_perms |
+
 ![02_image15.png](assets/02_image15.png)
 
 ## User Management in Practice
@@ -863,3 +872,175 @@ as I predicted it worked as I thought
 The tutor recommends playing with while loops before the next module
 
 # Nana - Shell Scripting
+
+Why create scripts?
+- Avoid repetitve work
+- Keep history of config
+- share instructions
+- Login & bulk operations
+
+Automate your work:
+Backup Script > Monitoring Scripts > Server Configuration Scripts
+
+The 1st line of any script should include the shebang !#
+| sh | BASH | ZSH |
+| --- | --- | --- |
+|#!/bin/sh|#!/bin/bash|#!/bin/zsh|
+
+## Writing Shell Scripts - P1
+### Variables
+- Used to **store data** & can be ref'd later
+- the same as variables in programming languages
+- store output of a command in a variable:
+    - varibale_name=$(command)
+
+### Conditionals
+- Allows you to alter the control flow of the program
+    - Execute a command only if a condition is true 
+    - (see if statements)
+
+### Built-in commands
+- Square brackets enclose expressions
+    - Shorthand for the Test command
+
+### Boolean
+- Data type that can only have 2 values:
+    - TRUE or FALSE
+
+## Writing Shell Scripts - P2
+
+Full List of test operators:
+- ![here](https://linuxhandbook.com/bash-test-operators)
+
+#### File test operators
+| switch | Descriptions / Effect |
+| --- | --- |
+| -t file | Check whether the file descriptor is associated with the terminal or not. |
+| -u file | Checks for "set-user-ID" (SUID) permission set on a specific file. |
+| -r file | Used to find whether the file is readable or not. |
+| -w file | Checks for whether the file is write permissions or not. |
+| -x file | It checks for the executable permissions for a specified file. |
+| -s file | Used to find whether the file size is greater than zero or not. |
+
+#### Relational Operators
+| switch | Descriptions / Effect |
+| --- | --- |
+| -eq | equal to |
+| -ne | not equal to |
+| -gt | greater than |
+| -lt | less than |
+| -ge | greater or equal to |
+| -le | less than or equal to |
+
+#### String Operators
+| switch | Descriptions / Effect |
+| --- | --- |
+| = | equal (gives boolean value) |
+| != | not equal (gives boolean value) |
+| -z | The String is null |
+| -n | The String is not null |
+| str | checks if the string is not empty |
+
+#### Writing Shell Scripts - P3
+
+- Passing arguments to a script:
+  - you can pass arguments when executing scripts, using special variables
+- Positional Parameters
+  - Arguments passed to script processed in the order recieved
+  - indexing starts at 1: $1
+  - $* - reps all the arguments as a single string
+  - $# - Total number of arguments provided
+
+#### Writing Shell Scripts - P4
+
+- Loops
+  - Execute a set of commands repeatedly till stopped / cancelled etc
+  - different types of loops (While, for, until, select)
+
+#### Writing Shell Scripts - P5
+
+- Functions
+  - Break down logical code blocks
+  - can be called, anywhere in the script, multiple times
+  - can accept parameters, rep'd by $1, $2, etc
+
+## Environment Variables
+
+- KEY=Values Pairs
+- available system wide
+- store info, that can be changed
+- Convention - names are defined in UPPERCASE
+
+#### 2x Use cases for env variables
+
+##### OS stores info about the env
+- When you have multiple users on a computer, each user can config their own env / acc via prefs
+![02_image16.png](assets/02_image16.png)
+- OS stores all configs in env variables
+
+##### Create your own Env Variables
+(*use Case: Sensitive data for apps*)
+
+- it's not secure ti hardcode creds directly into source code, etc
+- Can set data as env vars on a server
+  - creating them as env vars, we make them available in the env, all apps and processes will have access
+
+(*use Case: Make app more flexible*)
+
+- if your app connects to a DB, you need diff creds for diff dev, test, prod envs
+- setting as env vars on each server
+- now no need to change app code as the values are dynamically set
+
+![02_image17.png](assets/02_image17.png)
+
+#### Setting Env vars
+
+- *export* command is used to set env vars
+```bash
+export MY_VAR="myvalue"
+```
+**NOTE**:Env Vars created like this, are only available in the current session (closing this shell, the vars will be lost!)
+
+displays env var in the terminal
+```bash
+printenv
+```
+
+#### Persisting env variables
+
+- make env vars persistent by defining them in a shell config files(s)
+- these are shell specific config files
+   - EG: ~/.bashrc (if your using bash)
+- Vars set here are loaded whenever a bash login shell is created
+To load the new env vars into the current shell, run
+```bash
+source ~/.bashrc
+```
+- shell config files are user specific
+- Set system-wide env vars in /etc/environment file
+
+#### PATH
+
+- PATH is an Env Var
+- Value incl a list of dirs to exec files, seperated by :
+```bash
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
+- tells the shell which dirs to search for the executables, when you run a cmd, the sys searches for them on a 1st come 1st served
+
+
+## Last 2 areas:
+Networking (goes over basic stuff: what is DNS, Ports, firwalls, etc - Think Network+ basics)
+Plus some comds: ifconfig, netstat, etc
+SSH (goes over basic info about SSH)
+
+
+
+
+
+
+
+
+
+
+
