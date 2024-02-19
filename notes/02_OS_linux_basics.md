@@ -1,7 +1,25 @@
 ### Table of contents
 1. [Operating Systems & Linux Basics](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Operating-Systems-&-Linux-Basics)
 2. [Intro to CLI & basic cmds](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#intro-to-cli--basic-cmds)
-
+3. [Package Manager](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Package-Manager---Install-S/W)
+   - [Package Manager - Demo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Demo)
+4. [Snap vs apt](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Snap-vs-apt)
+5. [Users & permissions - Part1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Users-&-permissions---P1)
+6. [User Management in practice](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#User-Management-in-Practice)
+7. [Groups & Permissions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Groups-&-permissions)
+8. [Managing Users](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Managing-Users)
+9. [Create a new group](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Create-a-new-group)
+10. [Basic Linux Commands - Pipes & redirects](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Basic-Linux-Commands---Pipes-&-redirects)
+11. [Standard I/O](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Standard-input-and-output)
+12. [SIntro to Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Intro-to-Shell-Scripting)
+13. [Bash Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Bash-Scripting)
+    - [Variables](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Variables)
+    - [Math Function](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md##Math-Function)
+    - [Using variables in math expressions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Using-variables-in-math-expressions)
+    - [If-statements](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#If-statements)
+    - [Exit Codes](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Exit-Codes)
+    - [While Loops](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#While-Loops)
+14. [Nana - Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Nana---Shell-Scripting)
 
 
 ## Operating Systems & Linux Basics
@@ -473,7 +491,7 @@ files=$(ls)
 echo $files
 ```
 
-# Class 4: Math Function
+# Math Function
 
 To run a math problem in bash, you run it by using the “expr” command, as below:
 
@@ -503,7 +521,7 @@ expr $mynum1 + $mynum2
 
         ![02_image8](assets/02_image8.png)
 
-# Class 5: If statements
+# If statements
 
 if (something is true, do below)
 
@@ -614,7 +632,7 @@ $command
 
 When running if statements, the [ ] act as the test command
 
-# Class 6: Exit Codes
+# Exit Codes
 
 When a command runs without error its output (as in error code) is defined as 0 (zero), if we run a command that does create an error, say like running ls -l /misc (there’s no such dir as /misc) we get an error, if we use
 
@@ -732,7 +750,7 @@ it prints the hello world, however when we manually run the $?
 
 we get 1 (as in the exit code)
 
-# **Class 07 - While Loops**
+# While Loops
 
 A common thing to do with while loops is to show a menu
 
