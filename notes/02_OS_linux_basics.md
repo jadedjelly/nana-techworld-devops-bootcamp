@@ -479,7 +479,7 @@ echo "Hello, my name is $myname."
 echo "I'm $myage years old."
 ```
 
-        ![02_image7](assets/02_image7.png)
+![02_image7](assets/02_image7.png)
 
 In bash, there’s a difference between using ‘ & “, seems running the echos with a single ‘ then bash doesn't use the variable….
 
@@ -519,7 +519,7 @@ mynum2=200
 expr $mynum1 + $mynum2
 ```
 
-        ![02_image8](assets/02_image8.png)
+![02_image8](assets/02_image8.png)
 
 # If statements
 
