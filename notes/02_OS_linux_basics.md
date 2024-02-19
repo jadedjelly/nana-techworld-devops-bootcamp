@@ -26,7 +26,7 @@
     - [Writing Shell Scripts - P3](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P3)
     - [Writing Shell Scripts - P4](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P4)
     - [Writing Shell Scripts - P5](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P5)
-16. [Enviornment Variables](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Enviornment-Variables)
+16. [Enviornment Variables](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Environment-Variables)
 
 
 ## Operating Systems & Linux Basics
@@ -975,7 +975,9 @@ Full List of test operators:
 
 ##### OS stores info about the env
 - When you have multiple users on a computer, each user can config their own env / acc via prefs
+- 
 ![02_image16.png](assets/02_image16.png)
+
 - OS stores all configs in env variables
 
 ##### Create your own Env Variables
