@@ -5,13 +5,14 @@
    - [Package Manager - Demo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Demo)
 4. [Snap vs apt](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Snap-vs-apt)
 5. [Users & permissions - Part1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Users-&-permissions---P1)
-6. [User Management in practice](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#User-Management-in-Practice)
 7. [Groups & Permissions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Groups-&-permissions)
+8. [File Ownership & Permissions](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#File-Ownership-&-Permissions)
+6. [User Management in practice](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#User-Management-in-Practice)
 8. [Managing Users](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Managing-Users)
 9. [Create a new group](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Create-a-new-group)
 10. [Basic Linux Commands - Pipes & redirects](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Basic-Linux-Commands---Pipes-&-redirects)
 11. [Standard I/O](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Standard-input-and-output)
-12. [SIntro to Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Intro-to-Shell-Scripting)
+12. [Intro to Shell Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Intro-to-Shell-Scripting)
 13. [Bash Scripting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Bash-Scripting)
     - [Variables](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Variables)
     - [Math Function](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md##Math-Function)
@@ -82,15 +83,36 @@
 
 ## Intro to CLI & basic cmds
 
-Nana is going over cd, ls, pwd, mkdir, etc
-
+- Basic commands:
+    - ls (long listing)
+        - lists all objects / files in working dir
+    - ls {dir}
+        - lists all objects / files in named dir 
+        - eg: ls /etc/
+     - cd (change dir)
+     - cd .. (go back one folder (ie: say your 5 folders deep inside a folder, executing cd .. puts you up one level being 4 deep))
+     - cd ~ (send you to your home dir)
+     - mkdir {new dir name} (make directory)
+         - can go further, and crate complex structures like: mkdir -p ~/ubuntu/{14,16,18,20,22}.04/{gold.current}
+![02_image12](assets/02_image12.png)
+     -  touch {name of file} - creates a file
+         - nano {name of file} / vi  {name of file} / vim  {name of file} - create a file & open it in the listed editors 
+     - rm {file name} - removes a file (deletes it)
+     - rm -r {file name} - removes a dir (add -f if there are children inside )
+     - mv {file name} /destination - moves the file
+     - mv {file name} {new file name} - renames the file
+     - cp {file name} /destination - copies the file to /destination (add -r to copy dir)
+     - scp {file name} /destination (eg: scp ascript.sh root@192.168.1.121 /tmp) - secure copy to the remote location
+     - history - to view history of all commands executed
+         - history 100 - shows the last 100 commands executed
+     - cat {file name} - prints file to terminal
 - show system & kernel
     - uname -a
         - Kernel info, version, etc
 - Display OS release
     - cat /etc/os-release
 
-        ![02_image2](assets/02_image2.png)
+![02_image2](assets/02_image2.png)
 
 - check info about your hardware
     - lshw
@@ -241,7 +263,55 @@ Always 1x Root user per machine
             - Admin
             - Developer
 
-### User Management in Practice
+## File Ownership & Permissions
+- User permissions related to Reading (R), Writing (W), Executing (X)
+- Each file & folder has 2x diff owners - User & group
+- 3x categories of access:
+     - Owner: user that owns the object
+     - Group: group that owns the object
+     - Others: Ppl that aren't apart of the above
+- Default owner is the creater of the object
+- Owning group is the primary group
+
+- To change ownership, run:
+```bash
+chown <username>:<groupname> <filename>
+```
+- to view file permissions in a folder, simply run 
+```bash
+ls -l
+```
+![02_image13](assets/02_image13.png)
+
+### Permission Structure
+![02_image14.png](assets/02_image14.png)
+
+| Read | 4 in octal / 100 in binary / r in other |
+| --- | --- |
+| Write | 2 in octal / 010 in binary / w in other |
+| Execute | 1 in octal / 001 in binary / x in other |
+
+Default permissions for files = 666
+default in Directories = 777
+current umask value affects the default permissions of that wd = 002 (all can read)
+==Add a umask value to a login script to persist settings
+### Permission objects
+
+| User | Permissions granted to the user owner of the file and no other permissions are applied |
+| --- | --- |
+| Group | If the current user does not match the User owner, group membership is checked |
+| Others | If the current user ID does not match the user owner of belong to the group owner then permissions for others are applied |
+
+### Changing the mode of the file - Chmod
+
+| chmod | used to adjust the file permissions. Using the -v option we are able to display the before and after |
+| --- | --- |
+|  | Can either use octal (761) or symbolic (o+x) |
+|  | If we wanted to change the permission for file_perms to be read&write for everyone we would use 
+chmod 666 file_perms |
+![02_image15.png](assets/02_image15.png)
+
+## User Management in Practice
 
 Access Control Files
 
