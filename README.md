@@ -4,7 +4,6 @@
 ## Notes:
 - [1 - Devops Tools Explained](notes/01_DevopsTools_Explainer.md)
 - [2 - Operating Systems & Linux Basics](notes/02_OS_linux_basics.md)
-    - [Demo are here](demo_projects/02_linux_demo_files.md)
 - [3 - Version Control with Git](notes/03_git.md)
 - [4 - Build Tools and Package Manager Tools](notes/04_Build+Package_manager.md)
 - [5 - Cloud & Infrastructure as Service Basics with DigitalOcean](notes/05_Cloud_IaaS.md)
