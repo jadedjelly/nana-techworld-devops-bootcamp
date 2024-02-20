@@ -1,7 +1,7 @@
 # Git for Beginners
 1. [Local and remote Repos](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Local-and-remote-Repos)
 2. [Installing GIT](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Installing-GIT)
-3. [(Init)ializing a GIT repo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#(Init)-ializing-a-GIT-repo)
+3. [(Init)ializing a GIT repo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Init---ializing-a-GIT-repo)
 4. [Git Log](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#git-log)
 5. [Git Branches](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#git-branches)
     - [Creating a new Branch](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Creating-a-new-Branch)
@@ -12,7 +12,10 @@
     - [Merging branch into master remotely](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Merging-branch-into-master-remotely)
 7. [Rebasing vs Merge vs Squash](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Rebasing-vs-Merge-vs-Squash)
 8. [Interactive Rebase](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Interactive-Rebase)
-9. 
+9. [Cherry pick commits](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Cherry-pick-commits)
+10. [Resetting and Reverting](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Resetting-and-Reverting)
+11. [Stashing](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Stashing)
+12. [Reflog](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/03_git.md#Reflog)
 
 ## Local and remote Repos
 
@@ -28,7 +31,7 @@ Git has 2x repo types:
         - Committed Files:
             - Already committed files
     
-    ![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled.png)
+    ![03_image1.png](assets/03_image1.png)
     
 - Remote
     - in a github, bitbucket, etc
@@ -38,7 +41,7 @@ Git has 2x repo types:
 
 Windows, Mac, Linux - Follow instructions
 
-## (Init)ializing a GIT repo
+## Init-ializing a GIT repo
 
 run
 
@@ -46,7 +49,7 @@ run
 git init
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%201.png)
+![03_image2.png](assets/03_image2.png)
 
 doing this, creates an empty local git repo
 
@@ -60,7 +63,7 @@ Lets check the status:
 git status
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%202.png)
+![03_image3.png](assets/03_image3.png)
 
 Lets see Step by step:
 
@@ -110,7 +113,7 @@ To view the commits in your terminal, run the below:
 git log
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%203.png)
+![03_image4.png](assets/03_image4.png)
 
 Shows the information that you need to know about all the commits, such as:
 
@@ -137,7 +140,7 @@ Lets create a new branch
 git checkout -b sarah
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%204.png)
+![03_image5.png](assets/03_image5.png)
 
 To see a list of all other branches
 
@@ -145,7 +148,7 @@ To see a list of all other branches
 git branch
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%205.png)
+![03_image6.png](assets/03_image6.png)
 
 The Branch we are working on, will be highlighted, and have an * beside it
 
@@ -153,13 +156,13 @@ In total, we’re made one initial commit, they both point to that commit.
 
 As noted before, **BRANCHES** are actually nothing more than pointers to a certain commit. Lets say sarah adds a new story, and commits this to the Sarah branch, but not to the master branch. The master branch is now one commit, behind the sarah branch
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%206.png)
+![03_image7.png](assets/03_image7.png)
 
 Let’s say the team is growing, and you just hired a new dev called max, and he wants to write the 3rd story. Max is currently still checked out on the master branch, but to keep things clean, Max also creates his own branch called Max. 
 
 Max writes the third story
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%207.png)
+![03_image8.png](assets/03_image8.png)
 
 and commits this to his Max branch.
 
@@ -189,7 +192,7 @@ You might see the reference “to HEAD” in quite a few places.
 
 a “HEAD” is where you are right now in the git repo, the HEAD points to the last commit in the branch that your currently on. When you switch branches, the HEAD moves with you….
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%208.png)
+![03_image9.png](assets/03_image9.png)
 
 Branches are named after the feature being added or bug being fixed (Kodekloud person uses names…)
 
@@ -203,13 +206,13 @@ Branching allows working on production code, where we would add features or hotf
 
 Below is a screenshot of the file history
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%209.png)
+![03_image10.png](assets/03_image10.png)
 
 We create a new branch, this is usually named after what you are working on, for simplicity, we call it feature1.
 
 when we run the git log command we can see “HEAD → Master, feature1”
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2010.png)
+![03_image11.png](assets/03_image11.png)
 
 feature1 is a carbon copy of the master, but as said previously, you dont want to be working on production (obvs)
 
@@ -217,23 +220,23 @@ we move to feature1
 
 run the git log cmd again, to heck our work, and we see the order of HEAD to etc has changed
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2011.png)
+![03_image12.png](assets/03_image12.png)
 
 We create a new file called “feature” add some text, and we go ahead and commit the changes
 
 now when we run the git log command, we can see the latest commit, and it’s separation of the commits to master and feature1
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2012.png)
+![03_image13.png](assets/03_image13.png)
 
 we make a change to the file, adding “feature commit 2”, and run the git log again we can see the changes we have made to the new branch
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2013.png)
+![03_image14.png](assets/03_image14.png)
 
 For example our manager comes and says there’s a bug and we need to fix it asap! we switch to master (git checkout). create a dimple file called bugfix, commit it etc (btw, running && works!!)
 
 when we run the git log, we can see on the left hand side that there is a branch (very cool)
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2014.png)
+![03_image15.png](assets/03_image15.png)
 
 ## Merging
 
@@ -254,7 +257,7 @@ and the feature branch was
 
 after the merge the master looks like the feature….. ie msg=”hello world” etc
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2015.png)
+![03_image16.png](assets/03_image16.png)
 
 (Tutors log output used as you can clearly see the merge)
 
@@ -262,7 +265,7 @@ after the merge the master looks like the feature….. ie msg=”hello world” 
 
 Are caused when git doesn’t know what the merge should be?
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2016.png)
+![03_image16.png](assets/03_image17.png)
 
 So if we take the example of the print(”hello world”) merge, the merge changed the code to 
 
@@ -295,7 +298,7 @@ Branch2 = feature2
 2. print(msg)
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2017.png)
+![03_image17.png](assets/03_image18.png)
 
 from the feature2 branch, we run 
 
@@ -306,15 +309,13 @@ git merge feature/eff
 
 as below, we can see git has thrown a “CONFLICT”
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2018.png)
+![03_image18.png](assets/03_image19.png)
 
 if your running git with an IDE open (in this case VS code) most will show something similar to the below:
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2019.png)
+![03_image19.png](assets/03_image20.png)
 
 # Initialize Remote repos
-
-[lab](https://www.notion.so/Git-Labs-60d87a85b89841a0ba45d2b3d3db360c?pvs=21)
 
 When you setup a remote repo to one of the many online repos (Github, GitLab, Bitbucket - being the most popular), you get a connection string (url - [https://github.com/jadedjelly/git_pull_test.git](https://github.com/jadedjelly/git_pull_test.git))
 
@@ -340,7 +341,7 @@ Useful cmds for remote repos
 git remote -v
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2020.png)
+![03_image20.png](assets/03_image21.png)
 
 ## Pushing to remote repos
 
@@ -365,15 +366,16 @@ on the remote repo, it will require a push request (PR), once your create the PR
 
 ## Merging branch into master remotely!
 
-NOTE: This will be a lab as well (~\Desktop\Practice_files)
-
-See [labs](https://www.notion.so/Git-Labs-60d87a85b89841a0ba45d2b3d3db360c?pvs=21)!
-
-Pretty self explanatory
+- create a new file in a branch, add & commit it
+- move back to master
+- run the following:
+    - git merge -m “message for commit” feature/emailbutton [Source of merge]
+- git push
+    - to push changes
 
 # Rebasing vs Merge vs Squash!
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2021.png)
+![03_image21.png](assets/03_image22.png)
 
 [https://www.youtube.com/watch?v=0chZFIZLR_0](https://www.youtube.com/watch?v=0chZFIZLR_0) 
 
@@ -393,25 +395,25 @@ see below diagrams
 
 From:
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2022.png)
+![03_image22.png](assets/03_image23.png)
 
 to:
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2023.png)
+![03_image23.png](assets/03_image24.png)
 
 Keeps commit history clean!
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2024.png)
+![03_image24.png](assets/03_image25.png)
 
 Left messy commit history
 
 right neat / clean history
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2025.png)
+![03_image25.png](assets/03_image26.png)
 
 git squash This moves all commits into the latest commit, see below:
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2026.png)
+![03_image26.png](assets/03_image27.png)
 
 the only downside is the history, on a squash, all commit history is in a single file, where as a rebase and merge each individual commit is recorded
 
@@ -421,7 +423,7 @@ Say
 
 your working on a branch, and you have made a heap of changes that should have really been done on the 1st commit. You can use interactive rebase to condense this from 4 commits into 1.
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2027.png)
+![03_image27.png](assets/03_image28.png)
 
 running:
 
@@ -429,7 +431,7 @@ git rebase -i HEAD~4
 
 will execute as below:
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2028.png)
+![03_image28.png](assets/03_image29.png)
 
 this is where git helps you by showing the above in the local env terminal editor
 
@@ -466,7 +468,7 @@ To stash a staged file run,
 git stash
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2029.png)
+![03_image29.png](assets/03_image30.png)
 
 To see a list of stashed file run,
 
@@ -474,7 +476,7 @@ To see a list of stashed file run,
 git stash list
 ```
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2030.png)
+![03_image30.png](assets/03_image31.png)
 
 if you want to have a look at a specific file from the stash run,
 
@@ -498,4 +500,4 @@ git stash pop
 
 Used along with “reset”, reflog shows all changes on a repo, as below:
 
-![Untitled](Git%20for%20Beginners%20595eab72c5074274abf1c8d2a6e293cb/Untitled%2031.png)
+![03_image31.png](assets/03_image32.png)
