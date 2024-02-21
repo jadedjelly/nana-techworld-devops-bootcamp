@@ -1,5 +1,5 @@
-### Table of contents
-1. [Operating Systems & Linux Basics](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Operating-Systems-&-Linux-Basics)
+# Operating Systems & Linux Basics 
+1. [Linux File System](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Linux-File-System)
 2. [Intro to CLI & basic cmds](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#intro-to-cli--basic-cmds)
 3. [Package Manager](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Package-Manager---Install-S/W)
    - [Package Manager - Demo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Demo)
@@ -28,8 +28,6 @@
     - [Writing Shell Scripts - P5](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Writing-Shell-Scripts---P5)
 16. [Enviornment Variables](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/02_OS_linux_basics.md#Environment-Variables)
 
-
-## Operating Systems & Linux Basics
 
 
 #### Linux File System
