@@ -21,5 +21,5 @@
 
 ## Projects / Demos 
 1. [Overview](demo_projects/Demo_README.MD)
-2. [Cloud & Infrastructure as Service Basics with DigitalOcean](demo_projects/M5_cloud_IaaS/README.MD)
+2. [Cloud & Infrastructure as Service Basics with DigitalOcean](demo_projects/M5_Cloud_IaaS/M5_Demo_README.md)
 3. 
