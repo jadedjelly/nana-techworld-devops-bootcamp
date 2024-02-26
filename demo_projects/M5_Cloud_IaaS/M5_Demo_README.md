@@ -59,4 +59,4 @@ ssh john@46.101.212.166
 
 - below the java app running
 
-![05_image19.png](05_image19.png)
+![Linux server & java app](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/notes/assets/05_image19.png)
