@@ -59,5 +59,5 @@ ssh john@46.101.212.166
 
 - below the java app running
 
-![05_image19.png](notes/assets/05_image19.png)
+![05_image19.png](../notes/assets/05_image19.png)
 
