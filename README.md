@@ -22,4 +22,14 @@
 ## Projects / Demos 
 1. [Overview](demo_projects/Demo_README.MD)
 2. [Cloud & Infrastructure as Service Basics with DigitalOcean](demo_projects/M5_Cloud_IaaS/M5_Demo_README.md)
-3. 
+3. [Artifact Repository Manager with Nexus](demo_projects/M6_nexus/M6_Nexus_README.md)
+7. [Containers with Docker](demo_projects/M7_Docker/M7_Docker_README.md)
+8. [Build Automation & CI/CD with Jenkins](demo_projects/M8_jenkins/M8_Jenkins_README.md)
+9. [AWS Services](demo_projects/M9_AWS/M9_AWS_README.md)
+10. [Container Orchestration with Kubernetes](demo_projects/M10_K8/M10_K8_README.md)
+11. [Kubernetes on AWS - EKS](demo_projects/M11_k8_AWS/M11_k8_AWS_README.md)
+12. [Infrastructure as Code with Terraform](demo_projects/M12_Terraform/M12_Terraform_README.md)
+13. [Programming Basics with Python](demo_projects/M13_Python/M13_Python_README.md)
+14. [Automation with Python](demo_projects/M14_Auto_Python/M14_Auto_Python_README.md)
+15. [Configuration Management with Ansible](demo_projects/M15_Ansible/M15_Ansible_README.md)
+16. [Monitoring with Prometheus](demo_projects/M16_Prometheus/M16_Prometheus_README.md)
