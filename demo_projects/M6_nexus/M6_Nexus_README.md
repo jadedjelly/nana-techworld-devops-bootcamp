@@ -77,8 +77,8 @@ gradle build
 ```bash
 gradle publish
 ```
-change url for below image!!
-![06_image1]()
+
+![06_image1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/06_image1.png)
 
 - open java-maven-app folder in intellij
 - open pom.xml file
@@ -99,14 +99,14 @@ change url for below image!!
 ```bash
 mvn package
 ```
-change url for below image!!
-![06_image2.png]()
+
+![06_image2.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/06_image2.png)
 
 - we deploy it to the nexus repo, running the below:
 ```bash
 mvn deploy
 ```
-change url for below image!!
-![06_image3.png]()
+
+![06_image3.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/06_image3.png)
 
 
