@@ -1,21 +1,3 @@
-
-#warning: adding embedded git repository: demo_projects/M6_nexus/java-app
-#hint: You've added another git repository inside your current repository.
-#hint: Clones of the outer repository will not contain the contents of
-#hint: the embedded repository and will not know how to obtain it.
-#hint: If you meant to add a submodule, use:
-#hint:
-#hint:   git submodule add <url> demo_projects/M6_nexus/java-app
-#hint:
-#hint: If you added this path by mistake, you can remove it from the
-#hint: index with:
-#hint:
-#hint:   git rm --cached demo_projects/M6_nexus/java-app
-#hint:
-#hint: See "git help submodule" for more information.
-
-
-
 [submodule "demo_projects/M5_Cloud_IaaS/java-react-example"]
         path = demo_projects/M5_Cloud_IaaS/java-react-example
         url = git@github.com:jadedjelly/techworld-with-nana-java-react-example.git
