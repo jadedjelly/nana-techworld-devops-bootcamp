@@ -1,5 +1,7 @@
 
 # nana-techworld-devops-bootcamp
+Recommended schedule [here](https://www.techworld-with-nana.com/devops-bootcamp)
+![devops overview image](notes/assets/DevOps_Overview.PNG)
 
 ## Notes:
 1. [Devops Tools Explained](notes/01_DevopsTools_Explainer.md)
