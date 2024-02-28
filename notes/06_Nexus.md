@@ -1,17 +1,3 @@
-# Artifact Repo manager w/ Nexus
-
-course: Devops W/ Nana (https://www.notion.so/Devops-W-Nana-17b5905772ac4c8584ab0a49130d069a?pvs=21)
-mastery: none
-progress: not started
-
-# List of Supported artifacts:
-
-| APT | Bower 
-(for front-end web development) | Conan (for C/C++ projects with client-server architecture.) | Conda (management for any language---Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN) | Docker | ELPA |
-| --- | --- | --- | --- | --- | --- |
-| CPAN | CocoaPods (cache metadata .podspec.json files from CDN mirrors of Specs repositories) | Git LFS (Git Large File Storage) | Go | Helm | Maven |
-| Composer | Conan | npm | NuGet (package management solution for .NET developers) | p2 (provisioning and managing Eclipse- and Equinox-based applications) | PyPi |
-| R | Raw | RubyGems | Yum(RPM) |  |  |
 
 # Intro to Artifact Repository vs Manager
 
