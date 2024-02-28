@@ -1,17 +1,31 @@
 # Artifact Repo manager w/ Nexus
+-------------------------------------------------------------------------------------------------------------------
+1. [Intro to Artifact Repository vs Manager](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Intro-to-Artifact-Repository-vs-Manager)
+   - [What is a Manager?](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#What-is-a-Manager?)
+   - [Features of Repo Manager](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Features-of-Repo-Manager)
+2. [DEMO: Install & run Nexus on a cloud Server](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#DEMO:-Install-&-run-Nexus-on-a-cloud-Server)
+3. [Intro to Nexus](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Intro-to-Nexus)
+4. [Repository Types](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Repository-Types)
+   - [Proxy Type](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Proxy-Type)
+   - [Hosted Repo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Hosted-Repo)
+   - [Groups](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Groups)
+   - [Create New Repo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Create-New-Repo)
+5. [Demo: Publish Artifact to Repository](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Demo:-Publish-Artifact-to-Repository)
+   - [Demo: Gradle Project w/ Nexus](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Demo:-Gradle-Project-w/-Nexus)
+   - [Demo: Maven Project](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Demo:-Maven-Project)
+6. [Nexus REST API](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Nexus-REST-API)
+   - [How to Access the REST Endpoints](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#How-to-Access-the-REST-Endpoints)
+7. [Blob Store](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Blob-Store)
+8. [Creating a new Blob Store](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Creating-a-new-Blob-Store)
+   - [what should you consider when creating a Blob Store](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#what-should-you-consider-when-creating-a-Blob-Store)
+   - [DEMO: Assigning a blob store](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#DEMO:-Assigning-a-blob-store)
+9. [Components vs Assets](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Components-vs-Assets)
+10. [Cleanup Policies & scheduled tasks](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Cleanup-Policies-&-scheduled-tasks)
+    - [Creating a cleanup policy](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Creating-a-cleanup-policy)
+    - [DEMO: Attach policy to repo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#DEMO:-Attach-policy-to-repo)
+    - [Demo: Configuring on Cleanup policy](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Demo:-Configuring-on-Cleanup-policy)
+    - [Manually execute both tasks](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Manually-execute-both-tasks)
 
-course: Devops W/ Nana (https://www.notion.so/Devops-W-Nana-17b5905772ac4c8584ab0a49130d069a?pvs=21)
-mastery: none
-progress: not started
-
-# List of Supported artifacts:
-
-| APT | Bower 
-(for front-end web development) | Conan (for C/C++ projects with client-server architecture.) | Conda (management for any language---Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN) | Docker | ELPA |
-| --- | --- | --- | --- | --- | --- |
-| CPAN | CocoaPods (cache metadata .podspec.json files from CDN mirrors of Specs repositories) | Git LFS (Git Large File Storage) | Go | Helm | Maven |
-| Composer | Conan | npm | NuGet (package management solution for .NET developers) | p2 (provisioning and managing Eclipse- and Equinox-based applications) | PyPi |
-| R | Raw | RubyGems | Yum(RPM) |  |  |
 
 # Intro to Artifact Repository vs Manager
 
