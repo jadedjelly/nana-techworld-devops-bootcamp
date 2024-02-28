@@ -38,15 +38,15 @@
        - [Demo: Docker run postgres13:10](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Docker-run-postgres13:10)
        - [Demo: Docker run postgres14:7](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Docker-run-postgres14:7)
    - [Container vs VM](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Container-vs-VM)
-   - [Docker Arch & its components Part 1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Arch-&-it's-omponents-Part-1)
-   - [Docker Arch & its components Part 2](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Arch-&-it's-omponents-Part-2)
-   - [Docker Arch & its components Part 3](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Arch-&-it's-omponents-Part-3)
+   - [Docker Arch & its components Part 1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Arch-&-it's-components-Part-1)
+   - [Docker Arch & its components Part 2](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Arch-&-it's-components-Part-2)
+   - [Docker Arch & its components Part 3](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Arch-&-it's-components-Part-3)
    - [Docker Installation](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Installation)
    - [Docker Commands](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Commands)
        - [Demo: Main Docker Commands](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Main-Docker-Commands)
    - [Ports in Docker Part 1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Ports-in-Docker-Part-1)
    - [Ports in Docker Part 2](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Ports-in-Docker-Part-2)
-       - [Demo: Running containers w/ port bindings](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Running-containers-w/-port-bindings)
+       - [Demo: Running containers w/ port bindings](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#demo-running-containers-w-port-bindings)
        - [Demo: Docker Debug Commands](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Docker-Debug-Commands)
        - [Demo: Developing with Docker](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Developing-with-Docker)
 
@@ -1073,5 +1073,5 @@ Typical workflow when using docker
 Git repo [here](https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app.git)
 
 - pull the MongoDB & Mongoexpress images from docker
-- 
+
 
