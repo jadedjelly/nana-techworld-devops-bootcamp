@@ -26,7 +26,7 @@
 docker pull mongo
 docker pull mongo-express
 ```
-[07_image65.png](assets/07_image65.png)
+![07_image65.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image65.png)
 
 - we create a mongo network
 ```bash
@@ -48,7 +48,8 @@ docker run -d \
 -e ME_CONFIG_MONGODB_SERVER=mongodb \
 mongo-express
 ```
-[07_image67.png](assets/07_image67.png)
+![07_image67.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image67.png)
+
 
 *had an issue where "password" didnt work, till I shortened it to pass....*
 
@@ -63,9 +64,9 @@ npm server.js
 ```
 - access localhost:3000
 - update the info
-[07_image68.png](assets/07_image68.png)
+![07_image68.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image68.png)
 - go to localhost:8080 to see the data in the db
-[07_image69.png](assets/07_image69.png)
+![07_image69.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image69.png)
 
 We have a fully functioning NodeJS app, which has persistant data in a MongoDB w/ MongoUI all of which running in a docker Container
 
