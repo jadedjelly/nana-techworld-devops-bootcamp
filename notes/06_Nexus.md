@@ -41,7 +41,7 @@ This is where Nexus comes in (there are many repo managers, Nexus is the most po
 - Open source or Commercial versions
 - Below are the supported formats for Nexus:
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled.png)
+![06_image4.png](assets/06_image4.png)
 
 ### Features of Repo Manager
 
@@ -53,7 +53,7 @@ NOTE: Below is an example of a GitLab CICD pipeline using an artifact repo
 
 NOTE2: Also look at Gitlab CICD vs Jenkins (should be a plugin for jenkins)
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%201.png)
+![06_image5.png](assets/06_image5.png)
 
 - Backup & Restore
 - Multi-format support
@@ -69,7 +69,7 @@ NOTE2: Also look at Gitlab CICD vs Jenkins (should be a plugin for jenkins)
 
 *Nexus has resource requirements, for the Demo we are using the 8GB ram & 160GB storage*
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%202.png)
+![06_image6.png](assets/06_image6.png)
 
 - Once the droplet is created, we set the firewall rules
     - Using the Firewall rule from the previous demo
@@ -105,11 +105,11 @@ apt install net-tools
     - chown -R nexus:nexus nexus-3.64.0-04
     - chown -R nexus:nexus sonatype-work
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%203.png)
+![06_image7.png](assets/06_image7.png)
 
 Running history on the vm, we see the commands ran on the vm:
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%204.png)
+![06_image8.png](assets/06_image8.png)
 
 - We will now set it that Nexus will run as the nexus User, as below:
     - I prefer Nano, Nana uses vi
@@ -124,18 +124,18 @@ nano nexus-3.64.0-04/bin/nexus.rc
     - /opt/nexus-3.64.0-04/bin/nexus start
 - when we run “ps aux | grep nexus” we’ll see it running as below:
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%205.png)
+![06_image9.png](assets/06_image9.png)
 
 - and we can see what it’s listening on by running
     - netstat -lnpt
         - took a few mins for it to show fully
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%206.png)
+![06_image10.png](assets/06_image10.png)
 
 - dont forget to open the port on the firewall
     - 8081
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%207.png)
+![06_image11.png](assets/06_image11.png)
 
 # Intro to Nexus
 
@@ -153,11 +153,11 @@ Nana allowed this…. not sure why
 
 click on the cog > for the administration section
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%208.png)
+![06_image12.png](assets/06_image12.png)
 
 when you scroll down on this menu, you’ll also see “system” which has the below
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%209.png)
+![06_image13.png](assets/06_image13.png)
 
 - Important areas we’ll touch are:
     - Repositories
@@ -170,7 +170,7 @@ When Nexus is setup, out of the box, it creates (probably) the most popular repo
 
 From the list you will see each repo has a type:
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2010.png)
+![06_image14.png](assets/06_image14.png)
 
 - Types:
     - Proxy
@@ -254,7 +254,7 @@ the diff between “admin” and “view” seems to be different than it would 
             - url for the nexus server
             - and the credentials, which will be handled by a Gradle properties file
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2011.png)
+![06_image15.png](assets/06_image15.png)
 
 Now that everything is set, we will open the terminal within Intellij and run the gradle commands
 
@@ -271,11 +271,11 @@ gradle publish
 
 gradle knows what to publish, because we have configured the build.gradle file specify it
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2012.png)
+![06_image16.png](assets/06_image16.png)
 
 when we head back to the User view of the repositories, we can see out app in the “maven-snapshot” asset
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2013.png)
+![06_image17.png](assets/06_image17.png)
 
 ### DEMO: Maven Project
 
@@ -326,17 +326,17 @@ we create a file called settings.xml
 
 with that saved, we are going to build the jar file, then push to nexus
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2014.png)
+![06_image18.png](assets/06_image18.png)
 
 to push the jar file to the repo, we run
 
 mvn deploy
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2015.png)
+![06_image19.png](assets/06_image19.png)
 
 and from the repos
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2016.png)
+![06_image20.png](assets/06_image20.png)
 
 # Nexus REST API
 
@@ -360,7 +360,7 @@ Using the following command
 curl -u john:fh0fjjvrjigjf -X GET 'http://157.230.127.181:8081/service/rest/v1/repositories'
 ```
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2017.png)
+![06_image21.png](assets/06_image21.png)
 
 Although there are several repos available, the user “john” only has maven-view permissions (recall we set the nx-java role the wildcard view for maven snapshots)
 
@@ -370,7 +370,7 @@ if we run the same command, but with admin creds, we see everything
 curl -u admin:qwerty1983 -X GET 'http://157.230.127.181:8081/service/rest/v1/repositories'
 ```
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2018.png)
+![06_image22.png](assets/06_image22.png)
 
 another very useful query is, listing components in a specific repo:
 
@@ -378,7 +378,7 @@ another very useful query is, listing components in a specific repo:
 curl -u john:fh0fjjvrjigjf -X GET 'http://157.230.127.181:8081/service/rest/v1/components?repository=maven-snapshots'
 ```
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2019.png)
+![06_image23.png](assets/06_image23.png)
 
 with this you get a huge list of components
 
@@ -391,7 +391,7 @@ If needed, we can print out a specific component, by using the components ID
 curl -u john:fh0fjjvrjigjf -X GET 'http://157.230.127.181:8081/service/rest/v1/components/bWF2ZW4tc25hcHNob3RzOmMwYWMyYWI2YzVlOTNhNGE3NmY3OTkxMDI5ZTA5NGM4'
 ```
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2020.png)
+![06_image24.png](assets/06_image24.png)
 
 # Blob Store
 
@@ -416,9 +416,9 @@ ls -lh /opt/sonatype-work/nexus3/blobs/default/content/
 
 which displays the below:
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2021.png)
+![06_image25.png](assets/06_image25.png)
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2022.png)
+![06_image26.png](assets/06_image26.png)
 
 - File is a type, so “file” is a local location
 - S3 is the other type
@@ -447,9 +447,9 @@ NOTE:
 1. Once a blob store is created, it can’t be modified
 2. Blob store used by a repo can’t be deleted
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2023.png)
+![06_image27.png](assets/06_image27.png)
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2024.png)
+![06_image28.png](assets/06_image28.png)
 
 ### What should you consider when creating a blob store?
 
@@ -472,7 +472,7 @@ Nana points out that if you open an existing repo, there is no option to change 
 
 # Component vs Assets
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2025.png)
+![06_image29.png](assets/06_image29.png)
 
 In Nexus, the components are described as 
 
@@ -489,7 +489,7 @@ so the xml.md5 / xml.sha1 / sha1 / sha256 etc, these are the components of the �
 
 The assets on the other hand, are the files actual binaries (jar files and associated xml & pom files)
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2026.png)
+![06_image30.png](assets/06_image30.png)
 
 - Actual physical packages / files we are uploading
 
@@ -528,7 +528,7 @@ If you are not cleaning out old and unused components, your repositories will gr
 
 in the preview we see:
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2027.png)
+![06_image31.png](assets/06_image31.png)
 
 ### DEMO: Attach Policy to repo
 
@@ -542,7 +542,7 @@ in the preview we see:
 - From administration > scroll down to System, select “tasks”
 - we see a list of scheduled tasks
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2028.png)
+![06_image32.png](assets/06_image32.png)
 
 - by default, this gets executed in the middle of the night
 
@@ -554,28 +554,28 @@ Nana points out that items don’t get deleted (technically) they are marked for
 
 - Gives a lot of options, like: frequency of deletion (which has it’s own options, once selected (daily, hourly, monthly, and even CRON - by writing an expression)), what store to run it on, notification email (if a condition is met from the options below: Failure is default, other option is on “success or failure” )
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2029.png)
+![06_image33.png](assets/06_image33.png)
 
 ### Manually Execute both Tasks
 
 - open a task & click “run” to execute now
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2030.png)
+![06_image34.png](assets/06_image34.png)
 
 “last result” is ok
 
 and when we go back to Maven-snapshot now, both apps are gone:
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2031.png)
+![06_image35.png](assets/06_image35.png)
 
 However, as Nana mention they are only marked as deleted and are soft deleted, so we’ll run the compact tasks to actually delete them, freeing up disk space
 
 Before we run the compact, we view the size of the store as “36.73 MB”
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2032.png)
+![06_image36.png](assets/06_image36.png)
 
 - so same again, Admin > settings > tasks
 - open the “admin - compact…” task > click run
 - The default blob store is now “6.97kb”
 
-![Untitled](Artifact%20Repo%20manager%20w%20Nexus%209f44c9911d5f4147bc4475bd8eb6e1dd/Untitled%2033.png)
+![06_image37.png](assets/06_image37.png)
