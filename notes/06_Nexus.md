@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Artifact Repo manager w/ Nexus
 -------------------------------------------------------------------------------------------------------------------
 1. [Intro to Artifact Repository vs Manager](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Intro-to-Artifact-Repository-vs-Manager)
@@ -26,9 +25,6 @@
     - [DEMO: Attach policy to repo](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#DEMO:-Attach-policy-to-repo)
     - [Demo: Configuring on Cleanup policy](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Demo:-Configuring-on-Cleanup-policy)
     - [Manually execute both tasks](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/06_Nexus.md#Manually-execute-both-tasks)
-
-=======
->>>>>>> 1ac24790f05f2fd315b1d032b8d101087f520646
 
 # Intro to Artifact Repository vs Manager
 
