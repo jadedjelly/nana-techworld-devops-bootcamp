@@ -81,6 +81,63 @@ We have a fully functioning NodeJS app, which has persistant data in a MongoDB w
 - Write Docker Compose file to run MongoDB and MongoExpress containers
 
 
+
+- create a new yaml file
+```yaml
+version: '3'
+services:
+  # my-app:
+    # image: ${docker-registry}/my-app:1.0
+    # ports:
+     # - 3000:3000
+  mongodb:
+    image: mongo
+    ports:
+     - 27017:27017
+    environment:
+     - MONGO_INITDB_ROOT_USERNAME=admin
+     - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+     - mongo-data:/data/db
+  mongo-express:
+    image: mongo-express
+    # To make sure Mongo express can connect to MongoDB container, when we start, this is down to the possibility that Mongo
+    # express starts first, and will need to wait till the DB is up
+    restart: always
+    ports:
+     - 8081:8081
+    environment:
+     - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+     - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+     - ME_CONFIG_MONGODB_SERVER=mongodb
+    depends_on:
+     - "mongodb"
+volumes:
+  mongo-data:
+    driver: local
+```
+- Nana goes on to say, that you can use other methods like *depends_on*, *healthcheck* etc instead of the "*restart policy*"
+- save the file as mongo.yaml & in the js-app folder
+- run the compose file
+```yaml
+# the -f is for file, and up tells docker what action to take
+docker-compose -f mongo.yaml up
+```
+You can see during the terminal output, Mongo-Express retarted a few times while it waited to get a connection to the DB
+
+![07_image70.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image70.png)
+- checking localhost:8081 & localhost:3000 again, we can see the app & DB are communicating again
+![07_image71.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image71.png)
+![07_image72.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image72.png)
+![07_image73.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image73.png)
+
+- To shut the containers down, you can run the usual "docker stop <container IDs>" or the below docker-compose will do the same
+```bash
+docker-compose -f mongo.yaml down
+```
+![07_image74.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image74.png)
+- this command also, **removes** the containers & networks
+
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
 ### Dockerize Nodejs application and push to private Docker registry
@@ -93,6 +150,55 @@ We have a fully functioning NodeJS app, which has persistant data in a MongoDB w
 - Create private Docker registry on AWS (Amazon ECR)
 - Push Docker image to this private repository
 
+
+- We will create a Dockerfile based on the mongo.yaml file we created previously
+```go
+FROM node:20-alpine
+
+ENV MONGO_DB_USERNAME=admin \
+    MONGO_DB_PWD=password
+
+RUN mkdir -p /home/app
+
+COPY ./app /home/app
+
+# no need for /home/app/server.js because of WORKDIR
+CMD ["node", "server.js"]
+```
+- with the Dockerfile created, we open terminal from inside the project folder, and run:
+```bash
+# -t what we call the image, plus using the : we give it a version number
+# then we give the location of the Dockerfile, because we are executing from inside the project folder, we can just type
+# .
+docker build -t my-app:1.0 .
+```
+[07_image75.png]
+From above, you can see the build steps [1/3]-[3/3]
+- when we run rocker images we can see our newly created image
+
+[07_image76.png]
+- We have just done what Jenkins would do (if we had it running), 
+   - The way it sounds, Nana has setup a trigger for Jenkins to monitor / build when a repo changes (I couldn't get this to work last time)
+- After the image is built, you would push it to a repo
+- when we run the container we get an error (which makes sense seeing as we didnt tell it where to run)
+- we add two lines between the COPY commadn and the CMD command, as below:
+```go
+# set default dir so that next commands executes in /home/app dir
+WORKDIR /home/app
+# will execute npm install in /home/app because of WORKDIR
+RUN npm install
+```
+[07_image77.png]()
+
+- you can get into the container by running the exec command as below:
+```bash
+docker exec -it <container ID> /bin/sh
+```
+
+- we are going to recreate the Dockerfile, making it more efficient (basically removing the files we dont need to copy over)
+[07_image78.png]
+07_image79.png
+07_image80.png
 
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
@@ -107,6 +213,22 @@ We have a fully functioning NodeJS app, which has persistant data in a MongoDB w
 - Start our application container with MongoDB and MongoExpress services using docker compose
 
 
+- Create a private repo for Docker
+  - login to aws console
+- open ecr
+  - click get started
+  - we call name it after the app (my-app), leave everything as default
+  - 631368147597.dkr.ecr.eu-west-2.amazonaws.com/my-app
+  - NOTE: ECR is a single repo per image
+[07_image81.png]
+- connect & login to ECR from local terminal
+- click "view push commands" gives you line by line what needs to be executed
+[07_image82.png]
+[07_image83.png]
+
+- Now we will make some changes to the App, rebuild & push a new version to AWS repo
+- 
+video: Docker > part 12 (6:11)
 
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 

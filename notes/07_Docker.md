@@ -49,7 +49,7 @@
        - [Demo: Running containers w/ port bindings](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#demo-running-containers-w-port-bindings)
        - [Demo: Docker Debug Commands](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Docker-Debug-Commands)
        - [Demo: Developing with Docker](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#demo-developing-with-docker)
-
+   - [Docker Compose - Run Multiple Docker Containers](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Compose---Run-Multiple-Docker-Containers)
 
 # Commands
 
@@ -1067,11 +1067,7 @@ Typical workflow when using docker
 
 ![07_image61.png](assets/07_image61.png)
 
-- mongo DB = NoSQL DB
-- MongoExpress = UI for DB
+![Demo found here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#Use-Docker-for-local-development)
 
-Git repo [here](https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app.git)
-
-- pull the MongoDB & Mongoexpress images from docker
-
+## Docker Compose - Run Multiple Docker Containers
 
