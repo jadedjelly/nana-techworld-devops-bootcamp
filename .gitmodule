@@ -1,9 +1,9 @@
-[submodule "demo_projects/M5_Cloud_IaaS/java-react-example"]
-        path = demo_projects/M5_Cloud_IaaS/java-react-example
-        url = git@github.com:jadedjelly/techworld-with-nana-java-react-example.git
-[submodule "demo_projects/M6_nexus/java-app"]
-        path = demo_projects/M6_nexus/java-app
-        url = https://github.com/jadedjelly/techworld-with-nana-java-app
-[submodule "demo_projects/M6_nexus/java-maven-app"]
-        path = demo_projects/M6_nexus/java-maven-app
-	url = https://github.com/jadedjelly/techworld-with-nana-java-maven-app
+#[submodule "demo_projects/M5_Cloud_IaaS/java-react-example"]
+#        path = demo_projects/M5_Cloud_IaaS/java-react-example
+#        url = git@github.com:jadedjelly/techworld-with-nana-java-react-example.git
+#[submodule "demo_projects/M6_nexus/java-app"]
+#        path = demo_projects/M6_nexus/java-app
+#        url = https://github.com/jadedjelly/techworld-with-nana-java-app
+#[submodule "demo_projects/M6_nexus/java-maven-app"]
+#        path = demo_projects/M6_nexus/java-maven-app
+#	url = https://github.com/jadedjelly/techworld-with-nana-java-maven-app
