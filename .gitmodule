@@ -6,4 +6,4 @@
         url = https://github.com/jadedjelly/techworld-with-nana-java-app
 [submodule "demo_projects/M6_nexus/java-maven-app"]
         path = demo_projects/M6_nexus/java-maven-app
-        url = git@github.com:jadedjelly/techworld-with-nana-java-maven-app.git
+	url = https://github.com/jadedjelly/techworld-with-nana-java-maven-app
