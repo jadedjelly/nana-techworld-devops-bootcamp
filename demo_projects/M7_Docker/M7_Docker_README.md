@@ -172,11 +172,11 @@ CMD ["node", "server.js"]
 # .
 docker build -t my-app:1.0 .
 ```
-[07_image75.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image75.png)
+![07_image75.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image75.png)
 From above, you can see the build steps [1/3]-[3/3]
 - when we run docker images we can see our newly created image
 
-[07_image76.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image76.png)
+![07_image76.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image76.png)
 - We have just done what Jenkins would do (if we had it running), 
    - The way it sounds, Nana has setup a trigger for Jenkins to monitor / build when a repo changes (I couldn't get this to work last time)
 - After the image is built, you would push it to a repo
@@ -188,7 +188,7 @@ WORKDIR /home/app
 # will execute npm install in /home/app because of WORKDIR
 RUN npm install
 ```
-[07_image77.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image77.png)
+![07_image77.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image77.png)
 
 - you can get into the container by running the exec command as below:
 ```bash
@@ -197,9 +197,9 @@ docker exec -it <container ID> /bin/sh
 
 - we are going to recreate the Dockerfile, making it more efficient (basically removing the files we dont need to copy over)
 
-[07_image78.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image78.png)
-[07_image79.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image79.png)
-[07_image80.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image80.png)
+![07_image78.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image78.png)
+![07_image79.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image79.png)
+![07_image80.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image80.png)
 
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
@@ -221,11 +221,11 @@ docker exec -it <container ID> /bin/sh
   - we call name it after the app (my-app), leave everything as default
   - 631368147597.dkr.ecr.eu-west-2.amazonaws.com/my-app
   - NOTE: ECR is a single repo per image
-[07_image81.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image81.png)
+![07_image81.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image81.png)
 - connect & login to ECR from local terminal
 - click "view push commands" gives you line by line what needs to be executed
-[07_image82.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image82.png)
-[07_image83.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image83.png)
+![07_image82.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image82.png)
+![07_image83.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image83.png)
 
 - Now we will make some changes to the App, rebuild & push a new version to AWS repo
   - (remember, re-auth with ecr (if you have shut your terminal down previously))
