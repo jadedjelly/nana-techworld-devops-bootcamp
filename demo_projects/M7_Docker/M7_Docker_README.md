@@ -233,7 +233,6 @@ docker exec -it <container ID> /bin/sh
   - update the tags w/ (docker tag my-app:1.0 631368147597.dkr.ecr.eu-west-2.amazonaws.com/my-app:1.0)
   - and push to ecr (docker push 631368147597.dkr.ecr.eu-west-2.amazonaws.com/my-app:1.0)
 - we then start all 3x containers locally (probably to test to see it works) - running docker-compose -f mongo.yaml up
-- 
 
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 

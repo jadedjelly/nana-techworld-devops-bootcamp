@@ -50,6 +50,8 @@
        - [Demo: Docker Debug Commands](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Demo:-Docker-Debug-Commands)
        - [Demo: Developing with Docker](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#demo-developing-with-docker)
    - [Docker Compose - Run Multiple Docker Containers](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Compose---Run-Multiple-Docker-Containers)
+   - [Docker Network](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Network)
+   - [Docker Volumes](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Volumes)
 
 # Commands
 
@@ -1067,7 +1069,179 @@ Typical workflow when using docker
 
 ![07_image61.png](assets/07_image61.png)
 
-![Demo found here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#Use-Docker-for-local-development)
+The Very simplified flow:
 
-## Docker Compose - Run Multiple Docker Containers
+Develop a JS app (that uses Mongo in the backend) > commit to git > which triggers Jenkins, which builds a docker image > pushed to private docker repo > deployment server pulls the docker image (JS App) & pulls the mongoDB image from docker hub.. you now have your custom image & the DB running on the deployment server where they communicate with each other (mongo db & custom app that is [obvs configured])
+
+Starting code: [here](https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app.git)
+
+Final code: [here](https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app)
+
+### DEMO: Developing with Docker Containers
+
+![Demo Here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#docker-compose---run-multiple-docker-containers)
+
+## Docker Network
+
+Because MongoDB & MongoExpress are both inside the isolated docker network, they can communicate, but we also need to setup connectivity between those 2x and the NodeJS app.
+
+[07_image66.png](assets/07_image66.png)
+
+Later on when we package everything together, the communications between the NodeJS app & the mongo parts will already be connected / created
+
+running  the below, we can already see some docker networks that exist
+
+```bash
+docker network ls
+```
+
+- to create a network, we run:
+
+```bash
+docker network create mongo-network
+```
+
+- to connect mongoDB & Mongo Express together, we need to mention this network when running the docker run command
+    - we had a few things like:
+        - -p for ports (default port for mongo DB is 27017)
+        - -d then we run it in detached mode
+        - —name (container name)
+        - -net (the previously created network name)
+    - We also want to add some env variables, going to the official docs on mongodb (on dockerhub, scrolling down, we can see some info - in this case the username & password)
+        - -e (this is for the env variables - like user & pswd)
+
+while we can keep everything on a single line, it’s “not” that easy for some to read, you can add “\” after each flag to go down a line, as below:
+
+```bash
+docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --net mongo-network
+```
+
+or
+
+```bash
+docker run -d \
+-p 27017:27017 \
+-e MONGO_INITDB_ROOT_USERNAME=admin \
+-e MONGO_INITDB_ROOT_PASSWORD=password \
+--name mongodb \
+--net mongo-network \
+mongo
+
+```
+
+after we hit enter, we can view the logs by running:
+
+```bash
+docker logs 1842e2b98d3e8267d2a9f60b4a11a801be718d57f884cf0e489f29d56eed8ab3
+```
+
+Looking at the documentation for mongo-express [https://hub.docker.com/_/mongo-express](https://hub.docker.com/_/mongo-express) 
+
+we can see some env variables we need to add 
+
+```bash
+docker run -d \
+-p 8081:8081 \
+-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+-e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+--net mongo-network \
+--name mongo-express \
+-e ME_CONFIG_MONGODB_SERVER=mongodb \
+mongo-express
+```
+
+[07_image67.png](assets/07_image67.png)
+
+*had an issue where "password" didnt work, till I shortened it to pass....*
+
+- from the Mongro-express UI, we create a new DB called "user-account"
+- now we connect to the db from the nodeJS app
+- we open the server.js file in intellij (ensure the connection info is correct)
+- cd to the app/ and run it
+
+```bash
+# run ci, as it's faster
+npm ci
+npm run start
+
+```
+
+[07_image68.png](assets/07_image68.png)
+
+- go to localhost:8080 to see the data in the db
+[07_image69.png](assets/07_image69.png)
+
+Full demo, can be found [here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#Use-Docker-for-local-development)
+
+## Docker Volumes
+
+- What, when to use is a Docker Volume?
+- 3x Vol types
+- Docker vols in a compose file
+
+Example, you have a DB and you need to persist data. You would attach a docker volume to it, and this is where you point the data (overly simplified). As it is, if you have a container running a db, and you create / edit  /etc data, one restart of the caontainer all data is lost
+
+"*Folder in physical host file system us mounted into the virtual file system of Docker*"
+
+3x types of Volumes:
+Create a volume is during execution of the Docker run command, by using the flag -v
+and this is where you define the connection / reference between the local and the container
+```bash
+# [host dir]:[container dir]
+docker run -v /home/mount/data:/var/lib/mysql/data ...
+```
+The above is known as "**Host Volumes**"
+- it has advantages, you decide where on the holst file system that ref is made
+
+ The other way to create a volume is similar to the above, however you leave out the host dir /path
+ ```bash
+ docker run -v /var/lib/mysql/data
+ ```
+Doing the above, the directory for the host is automatically done by the app, inside 
+```bash
+/var/lib/docker/volumes/[random-hash]/_data
+```
+- For each container a folder is generated that gets mounted
+The above is known as "**anonymous Volumes**"
+
+The 3rd is an improvement of the anonymous Volumes, where it looks like you can assign the volume with a variable name
+```bash
+docker run -v name:var/lib/mysql/data
+```
+The above are known as "**named volumes**"
+
+Named Volumes are the logical choice in any env because you can ref them
+
+Using docker volumes in docker-compose 
+- inside the compose yaml file you would add the keyword: "volumes:" with the named volume as below:
+```yaml
+volumes:
+  - db-data:/var/lib/mysql/data
+```
+Further down the yaml file, you can ref the volume just as "db-data"
+
+- *You can ref multiple containers to the same volume, this is benefical if those containers need to share data*
+
+
+![demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#persist-data-with-docker-volumes)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
