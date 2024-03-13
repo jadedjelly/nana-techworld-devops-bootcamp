@@ -15,9 +15,9 @@
 - Docker, Node.js, MongoDB, MongoExpress
 
 #### Project Description:
-- Create Dockerfile for Nodejs application and build Docker image
-- Run Nodejs application in Docker container and connect to MongoDB database container locally.
-- Also run MongoExpress container as a UI of the MongoDB database.
+1. Create Dockerfile for Nodejs application and build Docker image
+2. Run Nodejs application in Docker container and connect to MongoDB database container locally.
+3. Also run MongoExpress container as a UI of the MongoDB database.
 
 
 
@@ -78,7 +78,7 @@ We have a fully functioning NodeJS app, which has persistant data in a MongoDB w
 - Docker, MongoDB, MongoExpress
 
 #### Project Description:
-- Write Docker Compose file to run MongoDB and MongoExpress containers
+1. Write Docker Compose file to run MongoDB and MongoExpress containers
 
 
 
@@ -146,9 +146,9 @@ docker-compose -f mongo.yaml down
 - Docker, Node.js, Amazon ECR
 
 #### Project Description:
-- Write Dockerfile to build a Docker image for a Nodejs application
-- Create private Docker registry on AWS (Amazon ECR)
-- Push Docker image to this private repository
+1. Write Dockerfile to build a Docker image for a Nodejs application
+2. Create private Docker registry on AWS (Amazon ECR)
+3. Push Docker image to this private repository
 
 
 - We will create a Dockerfile based on the mongo.yaml file we created previously
@@ -174,7 +174,7 @@ docker build -t my-app:1.0 .
 ```
 [07_image75.png]
 From above, you can see the build steps [1/3]-[3/3]
-- when we run rocker images we can see our newly created image
+- when we run docker images we can see our newly created image
 
 [07_image76.png]
 - We have just done what Jenkins would do (if we had it running), 
@@ -188,7 +188,7 @@ WORKDIR /home/app
 # will execute npm install in /home/app because of WORKDIR
 RUN npm install
 ```
-[07_image77.png]()
+[07_image77.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image77.png)
 
 - you can get into the container by running the exec command as below:
 ```bash
@@ -196,9 +196,9 @@ docker exec -it <container ID> /bin/sh
 ```
 
 - we are going to recreate the Dockerfile, making it more efficient (basically removing the files we dont need to copy over)
-[07_image78.png]
-07_image79.png
-07_image80.png
+[07_image78.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image78.png)
+[07_image79.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image79.png)
+[07_image80.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image80.png)
 
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
@@ -208,9 +208,9 @@ docker exec -it <container ID> /bin/sh
 - Docker, Amazon ECR, Node.js, MongoDB, MongoExpress
 
 #### Project Description:
-- Copy Docker-compose file to remote server
-- Login to private Docker registry on remote server to fetch our app image
-- Start our application container with MongoDB and MongoExpress services using docker compose
+1. Copy Docker-compose file to remote server
+2. Login to private Docker registry on remote server to fetch our app image
+3. Start our application container with MongoDB and MongoExpress services using docker compose
 
 
 - Create a private repo for Docker
@@ -220,15 +220,19 @@ docker exec -it <container ID> /bin/sh
   - we call name it after the app (my-app), leave everything as default
   - 631368147597.dkr.ecr.eu-west-2.amazonaws.com/my-app
   - NOTE: ECR is a single repo per image
-[07_image81.png]
+[07_image81.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image81.png)
 - connect & login to ECR from local terminal
 - click "view push commands" gives you line by line what needs to be executed
-[07_image82.png]
-[07_image83.png]
+[07_image82.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image82.png)
+[07_image83.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image83.png)
 
 - Now we will make some changes to the App, rebuild & push a new version to AWS repo
+  - (remember, re-auth with ecr (if you have shut your terminal down previously))
+  - docker build -t my-app:1.0 .
+  - update the tags w/ (docker tag my-app:1.0 631368147597.dkr.ecr.eu-west-2.amazonaws.com/my-app:1.0)
+  - and push to ecr (docker push 631368147597.dkr.ecr.eu-west-2.amazonaws.com/my-app:1.0)
+- we then start all 3x containers locally (probably to test to see it works) - running docker-compose -f mongo.yaml up
 - 
-video: Docker > part 12 (6:11)
 
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
@@ -238,7 +242,7 @@ video: Docker > part 12 (6:11)
 - Docker, Node.js, MongoDB
 
 #### Project Description:
-- Persist data of a MongoDB container by attaching a Docker volume to it
+1. Persist data of a MongoDB container by attaching a Docker volume to it
 
 
 ---------------------------------------------------------------------------------------------------
@@ -249,10 +253,10 @@ video: Docker > part 12 (6:11)
 - Docker, Nexus, DigitalOcean, Linux
 
 #### Project Description:
-- Create Docker hosted repository on Nexus
-- Create Docker repository role on Nexus
-- Configure Nexus, DigitalOcean Droplet and Docker to be able to push to Docker repository
-- Build and Push Docker image to Docker repository on Nexus
+1. Create Docker hosted repository on Nexus
+2. Create Docker repository role on Nexus
+3. Configure Nexus, DigitalOcean Droplet and Docker to be able to push to Docker repository
+4. Build and Push Docker image to Docker repository on Nexus
 
 
 ---------------------------------------------------------------------------------------------------
@@ -263,8 +267,8 @@ video: Docker > part 12 (6:11)
 - Docker, Nexus, DigitalOcean, Linux
 
 #### Project Description:
-- Create and Configure Droplet
-- Set up and run Nexus as a Docker container
+1. Create and Configure Droplet
+2. Set up and run Nexus as a Docker container
 
 
 ---------------------------------------------------------------------------------------------------
