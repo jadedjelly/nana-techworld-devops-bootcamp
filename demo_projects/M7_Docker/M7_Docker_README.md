@@ -172,11 +172,11 @@ CMD ["node", "server.js"]
 # .
 docker build -t my-app:1.0 .
 ```
-[07_image75.png]
+[07_image75.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image75.png)
 From above, you can see the build steps [1/3]-[3/3]
 - when we run docker images we can see our newly created image
 
-[07_image76.png]
+[07_image76.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image76.png)
 - We have just done what Jenkins would do (if we had it running), 
    - The way it sounds, Nana has setup a trigger for Jenkins to monitor / build when a repo changes (I couldn't get this to work last time)
 - After the image is built, you would push it to a repo
@@ -196,6 +196,7 @@ docker exec -it <container ID> /bin/sh
 ```
 
 - we are going to recreate the Dockerfile, making it more efficient (basically removing the files we dont need to copy over)
+
 [07_image78.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image78.png)
 [07_image79.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image79.png)
 [07_image80.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/07_image80.png)
