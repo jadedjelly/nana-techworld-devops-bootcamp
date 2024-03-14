@@ -1215,10 +1215,34 @@ Named Volumes are the logical choice in any env because you can ref them
 Using docker volumes in docker-compose 
 - inside the compose yaml file you would add the keyword: "volumes:" with the named volume as below:
 ```yaml
-volumes:
-  - db-data:/var/lib/mysql/data
+version: '3'
+services:
+    mongodb:
+        image: mongo
+        ports:
+         - 27017:27017
+        volumes:
+         - db-data:/var/lib/mysql/data
+    ....
 ```
-Further down the yaml file, you can ref the volume just as "db-data"
+Further down the yaml file, you can ref the volume(s) as a list:
+```yaml
+version: '3'
+services:
+    mongodb:
+        image: mongo
+        ports:
+         - 27017:27017
+        volumes:
+         - db-data:/var/lib/mysql/data
+    mongo-express:
+        image: mongo-express
+    ...
+volumes:
+    db-data
+    data-db2
+    ....
+```
 
 - *You can ref multiple containers to the same volume, this is benefical if those containers need to share data*
 
