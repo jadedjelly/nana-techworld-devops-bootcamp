@@ -1270,9 +1270,21 @@ We have worked with Nexus and Docker, now we will create a repo on nexus and we 
 ![demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#Deploy-Nexus-as-Docker-container)
 
 ## Docker Best practices
+1. Use offical docker images as a base image
+2. Use exact versions, alwasy using the latest tag, can mean the latest release could potentially break an app (fixate the version)
+3. Keep your images small, only add what you need. If you choose fullblown OSs image sizes are going to be huge, choosing something like alpine (security focused distro) is quite small in comparison, also the bigger the image the bigger the threat landscape
+4. Order Dockerfile commands from least to most frequently changed / changing (takes advantage of caching)
+5. use .dockerignore to exc files & folders that are not needed
+6. Make sure of Multi-stage Builds
+7. Create a user to run an application, **NEVER** use root! (*obvs*), you can add this to your DockerFile, check Docker image docs, as it might already be done
+8. **SCAN SCAN SCAN** for vulnerabilities! Use docker scan! See below (you need to be logged in to Docker):
+```bash
+docker scout cves myapp:1.0
+```
+![07_image104.png](assets/07_image104.png)
 
-
-
+- Nana ran a scan on her app, the above is it's output
+*NOTE:* Have a look at the streamlit app, this should show some interesting data, will be doing the same in the jenkins pipeline
 
 
 
