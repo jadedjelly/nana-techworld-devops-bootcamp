@@ -1088,7 +1088,7 @@ Final code: [here](https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-ap
 
 Because MongoDB & MongoExpress are both inside the isolated docker network, they can communicate, but we also need to setup connectivity between those 2x and the NodeJS app.
 
-[07_image66.png](assets/07_image66.png)
+![07_image66.png](assets/07_image66.png)
 
 Later on when we package everything together, the communications between the NodeJS app & the mongo parts will already be connected / created
 
@@ -1153,7 +1153,7 @@ docker run -d \
 mongo-express
 ```
 
-[07_image67.png](assets/07_image67.png)
+![07_image67.png](assets/07_image67.png)
 
 *had an issue where "password" didnt work, till I shortened it to pass....*
 
@@ -1169,10 +1169,10 @@ npm run start
 
 ```
 
-[07_image68.png](assets/07_image68.png)
+![07_image68.png](assets/07_image68.png)
 
 - go to localhost:8080 to see the data in the db
-[07_image69.png](assets/07_image69.png)
+![07_image69.png](assets/07_image69.png)
 
 Full demo, can be found [here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#Use-Docker-for-local-development)
 
@@ -1262,7 +1262,7 @@ We have worked with Nexus and Docker, now we will create a repo on nexus and we 
 
 - In the Nexus module we created nexus on a Droplet, where we had to do the following:
     - Install java
-    - Download and Untar the NExus package
+    - Download and Untar the Nexus package
     - create a Nexus user & give the user permissions
     - then run nexus w/ the nexus user
 - A better way (easier & faster) to run nexus is to run it as a container on a droplet
