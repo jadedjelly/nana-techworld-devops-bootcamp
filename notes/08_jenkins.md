@@ -114,9 +114,10 @@ Going back to the dashboard, we can see the last successful / last failure and l
     - this uses Groovy Jenkins DSL Syntax
     
 ![08_image6.png](assets/08_image6.png)
-    
 
-| Hello world | pipeline {
+- Hello world
+```groovy
+pipeline {
 agent any
 stages {
 stage('Hello') {
@@ -125,9 +126,11 @@ echo 'Hello World'
 }
 }
 }
-} |
-| --- | --- |
-| github & maven | pipeline {
+}
+```
+- github & maven
+```groovy
+pipeline {
 agent any
 tools {
 // Install the Maven version configured as "M3" and add it to the path.
@@ -153,8 +156,11 @@ archiveArtifacts 'target/.jar'
 }
 }
 }
-} |
-| Scripted pipeline | node {
+}
+```
+- Scripted Pipeline
+``` groovy
+node {
 def mvnHome
 stage('Preparation') { // for display purposes
 // Get some code from a GitHub repository
@@ -178,7 +184,9 @@ stage('Results') {
 junit '**/target/surefire-reports/TEST-.xml'
 archiveArtifacts 'target/.jar'
 }
-} |
+}
+```
+
 - We use the “hello world” sample
 
 ```groovy
