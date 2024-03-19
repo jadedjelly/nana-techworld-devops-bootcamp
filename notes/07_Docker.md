@@ -52,6 +52,9 @@
    - [Docker Compose - Run Multiple Docker Containers](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Compose---Run-Multiple-Docker-Containers)
    - [Docker Network](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Network)
    - [Docker Volumes](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-Volumes)
+   - [Push / pull Nexus Repository](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#push-/-pull-nexus-repo)
+   - [Deploy Nexus as Docker container](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Deploy-Nexus-as-Docker-container)
+   - [Docker Best practices](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/07_Docker.md#Docker-best-practices)
 
 # Commands
 
@@ -1249,15 +1252,24 @@ volumes:
 
 ![demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#persist-data-with-docker-volumes)
 
+## push / pull nexus repo
 
+We have worked with Nexus and Docker, now we will create a repo on nexus and we can push our images to Nexus
 
+![demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#Create-Docker-repository-on-Nexus-and-push-to-it)
 
+## Deploy Nexus as Docker container
 
+- In the Nexus module we created nexus on a Droplet, where we had to do the following:
+    - Install java
+    - Download and Untar the NExus package
+    - create a Nexus user & give the user permissions
+    - then run nexus w/ the nexus user
+- A better way (easier & faster) to run nexus is to run it as a container on a droplet
 
+![demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M7_Docker_README.md#Deploy-Nexus-as-Docker-container)
 
-
-
-
+## Docker Best practices
 
 
 
