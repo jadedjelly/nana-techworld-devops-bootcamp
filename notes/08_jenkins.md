@@ -19,7 +19,23 @@
     - [Jenkins, Docker, Maven & Github](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Jenkins,-Docker,-Maven-&-Github)
 ---------------------------------------------------------------------------------------------------------------------
 1. [Nana - Devops Bootcamp - Jenkins Module](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkinsr.md#Nana---Devops-Bootcamp---Jenkins-Module)
-- [Intro to build automation](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Intro-to-build-automation)
+    - [Intro to build automation](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Intro-to-build-automation)
+    - [Install Jenkins](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Install-Jenkins)
+    - [Intro to Jenkins UI](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Intro-to-Jenkins-UI)
+    - [Install Build tools in Jenkins](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Install-Build-tools-in-Jenkins)
+    - [Jenkins Basics Demo - Freestyle job](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Jenkins-Basics-Demo---Freestyle-job)
+    - [Docker in Jenkins](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Docker-in-Jenkins)
+    - [Freestyle to pipeline job](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Docker-in-Jenkins)
+    - [Intro to pipeline job](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Intro-to-pipeline-job)
+    - [Jenkinsfile Syntax](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Jenkinsfile-Syntax)
+    - [Create complete pipeline](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Create-complete-pipeline)
+    - [Intro to Multibranch pipeline](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Intro-to-Multibranch-pipeline)
+    - [Jenkins Jobs Overview](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Jenkins-Jobs-Overview)
+    - [Credentials in Jenkins](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Credentials-in-Jenkins)
+    - [Jenkins shared library](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Jenkins-shared-library)
+    - [Webhooks - Trigger pipeline Jobs automatically](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Webhooks---Trigger-pipeline-Jobs-automatically)
+    - [Dynamically Increment Application Version in Jenkins pipeline - part 1](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Dynamically-Increment-Application-Version-in-Jenkins-pipeline---part-1)
+    - [Dynamically Increment Application Version in Jenkins pipeline - part 2](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Dynamically-Increment-Application-Version-in-Jenkins-pipeline---part-2)
 
 # Resources:
 
@@ -954,5 +970,134 @@ NOTE: I changed the push target to my own repo
 (after some {} issues, it’s now running)
 
 (some more issues with single vs double quotes)
-
+----------------------------------------------------------------------------------------------------------------------
 # Nana - Devops Bootcamp - Jenkins Module
+
+## Intro to build automation
+What is build automation?
+Process of automating: (at the heart of Devops)
+- Retrival of source code
+- execution of automated tests
+- compiling into binary code/ build docker image
+- pushing of artifacts to a repo
+- deploying of artifacts
+
+Doing this manually, is a pain and takes time... who the hell wants that?
+- stashing work changes to main
+- logging into correct docker repo
+- setting up test enrio's to run tests
+- executing tests
+- building images and pushing to a repo
+(no thank you!)
+
+We setup a dedicated server to do the above for us, leaving us to do other tasks
+Test code > Build app > push to repo > deploy to server
+- test enviro prep'd
+- docker creds configured
+- all required tools installed
+- trigger automatically
+
+What is Jenkins & what can you do with it?
+- Build automation tool
+- Installed to a dedicated server
+- has a UI
+- Install what you need (docker, maven, gradle, etc)
+- config tasks (run test, build, deploy etc)
+- config for auto trigger of workflow
+- build, publish & deploy artifacts
+- send notifications (pass, fail, etc)
+
+Integration with many tools:
+This is done via plugins
+- Docker, repos, deployment servers, build tools
+![08_image39.png](assets/08_image39.png)
+
+How does it work & what do we need to config?
+Run test > Build tools need to be available / installed
+- with build tools (maven, gradle, etc), we run things like:
+    - npm test, gradlew test, nvm test, etc
+- config test enviros (test DB)
+
+Build apps > Build tools or Docker available
+
+- w/ Docker execute docker commands:
+    - docker build
+- with build tools you execute build commands: 
+    - npm package, gradlew build, etc
+
+Publish Docker image > store creds in Jenkins
+
+- Jenkins user must have access to all techs and platforms
+
+## Install Jenkins
+[demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
