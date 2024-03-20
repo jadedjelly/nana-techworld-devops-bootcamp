@@ -1030,7 +1030,7 @@ Publish Docker image > store creds in Jenkins
 - Jenkins user must have access to all techs and platforms
 
 ## Install Jenkins
-[demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
+[demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
 
 
 
