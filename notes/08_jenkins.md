@@ -18,7 +18,7 @@
     - [Spring boot & Jenkins](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Spring-boot-&-Jenkins)
     - [Jenkins, Docker, Maven & Github](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Jenkins,-Docker,-Maven-&-Github)
 ---------------------------------------------------------------------------------------------------------------------
-1. [Nana - Devops Bootcamp - Jenkins Module](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkinsr.md#Nana---Devops-Bootcamp---Jenkins-Module)
+1. [Nana - Devops Bootcamp - Jenkins Module](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Nana---Devops-Bootcamp---Jenkins-Module)
     - [Intro to build automation](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Intro-to-build-automation)
     - [Install Jenkins](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Install-Jenkins)
     - [Intro to Jenkins UI](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/08_jenkins.md#Intro-to-Jenkins-UI)
