@@ -1,5 +1,11 @@
+ToC:
+1. [nana-techworld-devops-bootcamp (nana-TWD)](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#nana-techworld-devops-bootcamp (nana-TWD))
+    - [Notes](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#Notes)
+    - [Projects / Demos](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#Projects-/-Demos)
+2. [Personal Devop Projects](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#Personal-Devop-Projects)
 
-# nana-techworld-devops-bootcamp
+
+# nana-techworld-devops-bootcamp (nana-TWD)
 Recommended schedule [here](https://www.techworld-with-nana.com/devops-bootcamp)
 ![devops overview image](notes/assets/DevOps_Overview.PNG)
 
@@ -35,3 +41,6 @@ Recommended schedule [here](https://www.techworld-with-nana.com/devops-bootcamp)
 14. [Automation with Python](demo_projects/M14_Auto_Python/M14_Auto_Python_README.md)
 15. [Configuration Management with Ansible](demo_projects/M15_Ansible/M15_Ansible_README.md)
 16. [Monitoring with Prometheus](demo_projects/M16_Prometheus/M16_Prometheus_README.md)
+
+## Personal Devop Projects
+1. [Jenkins](demo_projects/Demo_README.MD)
