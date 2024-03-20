@@ -1,7 +1,7 @@
 ToC:
 1. [nana-techworld-devops-bootcamp (nana-TWD)](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#nana-techworld-devops-bootcamp (nana-TWD))
     - [Notes](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#Notes)
-    - [Projects / Demos](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#Projects-/-Demos)
+    - [Projects / Demos](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#Projects--Demos)
 2. [Personal Devop Projects](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/README.md#Personal-Devop-Projects)
 
 
