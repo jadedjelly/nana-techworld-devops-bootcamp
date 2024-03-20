@@ -43,4 +43,4 @@ Recommended schedule [here](https://www.techworld-with-nana.com/devops-bootcamp)
 16. [Monitoring with Prometheus](demo_projects/M16_Prometheus/M16_Prometheus_README.md)
 
 ## Personal Devop Projects
-1. [Overview](personal_devop_projects/README.MD)
+1. [Overview](personal_devops_projects/PD_README.md)
