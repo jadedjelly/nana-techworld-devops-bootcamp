@@ -1,4 +1,4 @@
-# Module 7 - Build Automation & CI/CD with Jenkins
+# Module 8 - Build Automation & CI/CD with Jenkins
 1. [Install Jenkins on DigitalOcean](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
 2. [Create a CI Pipeline with Jenkinsfile (Freestyle, Pipeline, Multibranch
 Pipeline)](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
