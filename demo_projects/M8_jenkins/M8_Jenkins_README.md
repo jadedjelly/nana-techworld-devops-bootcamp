@@ -44,18 +44,18 @@ docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenk
 ```
 [docker hub jenkins](https://hub.docker.com/r/jenkins/jenkins)
 
-![08_image40.png](assets/08_image40.png)
+![08_image40.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image40.png)
 
 Obvs when you start Jenkins for the 1st time, you get the setup wizard as below, and you'll need to get the temp admin creds for it here - /var/jenkins_home/secrets/initialAdminPassword
 
 using the below we shell into the jenkins server to get to the temp password location
-![08_image41.png](assets/08_image41.png)
+![08_image41.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image41.png)
 we could have also looked for the location for the volume using docker inspect volume [vol name]
 
 - pw set to usual test pw
 - click install suggested plugins
 
-![08_image42.png](assets/08_image42.png)
+![08_image42.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image42.png)
 
 - now we create the 1st admin user
 - start & finish, next on the url stuff and press "Start using Jenkins"
