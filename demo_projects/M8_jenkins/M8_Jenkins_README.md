@@ -135,7 +135,7 @@ we can then run the node & npm with the -v flag
 - In the next screen, this is where you can add your SCM, Triggers, Environment & build steps
     - Keep everything as default, and scroll to "Build Steps"
     - click the drop down menu here, and the below is displayed
-    - 
+
 ![08_image56.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image56.png)
 
     - select "execute shell"
@@ -218,15 +218,81 @@ HEading back to my-job > Configure > scroll down to "Build steps", we can see fr
 - click save and then "build now", output below:
 ![08_image63.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image63.png)
 
-## Runs test & build Java Application
+## Run test & build Java Application
 
+![08_image52.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image52.png)
+- we create a new freestyle job, call it "java-maven-build"
+- add the repo:
+    - https://github.com/jadedjelly/Jenkins_Module8.git
+- change the credentials to the ones we created earlier
+- change the branch to "jenkins-jobs"
+- Add a build step "Invoke top-level maven targets"
+- choose the version we created earlier (maven-3.9)
+- add "test" in to goals
+- do the same again put add "package" as the goal
+- click save
+- Looking through the output (very long), we see that the app has been tested & packaged, and now when we go to the server and do a ls of /var/jenkins_home/workspace/java-maven-build/target we can see the jar files as below:
 
+![08_image64.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image64.png)
 
+## Make Docker available on Jenkins server
+We need to mount the Docker runtime directory to the container, 1st we need to stop the container
+- ssh ont othe jenkins server, and run the below stop command:
+```bash
+docker container stop
+```
+then run the below to add the docker.sock folder (runtime)
+```bash
+docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
+```
+then we need to grab the latest version, change the permissions on it then run it
 
+```bash
+curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall
+```
 
+- then we need to give the jenkins user permissions to use docker commands, so we remote into the container and run:
+```bash
+chmod 666 /var/run/docker.sock
+```
+![08_image66.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image66.png)
+we can now run docker commands from inside the "execute shell" area of a job configuration
 
+## Build Docker image 
 
+![08_image65.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image65.png)
+```Dockerfile
+FROM amazoncorretto:8-alpine3.17-jre
 
+EXPOSE 8080
+
+COPY ./target/java-maven-app-*.jar /usr/app/
+WORKDIR /usr/app
+
+CMD java -jar java-maven-app-*.jar
+```
+The above has been added as a Dockerfile to the jenkins-jobs branch of the java-maven app
+
+- From the dashboard, click java-maven-build > then configuration
+- scroll down to "build steps", remove the maven command to test, as the package command does this
+- Add a new build step for "Execute shell"
+- add the following to the shell:
+    -  docker build .
+    -  we also add the name tag -t along with java-maven-app
+```bash
+docker build -t java-maven-app:1.0 .
+```
+- click save & Build now
+Now when we look at docker images on the server we can see our java-maven app image as listed:
+
+![08_image67.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image67.png)
+
+## Push image to Docker hub
+As a next step we will push that image to a Docker Repo
+
+![08_image68.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image68.png)
+
+====Paused 10:03 - Docker in jenkins====
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
 ### Create a Jenkins Shared Library

@@ -1093,16 +1093,20 @@ When you create a new item / job you have multiple optiosn to choose from: (*Tak
 - Scans a repo, and groups projects as a "team", can setup triggers, or other parameters.
 Easiest to think of it as a collection of *Multibranch pipeline projects*
 
-The below demos are available ![here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
+The below demos are available ![here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 - Install a plugin via the plugins option in "manage jenkins"
 - Configure Git Repository
 - Complete task from git repo in Jenkins job
 - Run test & build Java Application
 
+## Docker in Jenkins
+So we need to have docker commands available to build docker images, so we need them available in Jenkins in order to be 
+able to use them. A common way to do this is to attach a volume to jenkins from the host file. 
+So we need to mount the docker.sock file to the container, but first we need to take the container down, and reattach it with this volume, as below (The demo linked below will show this )
 
 
 
-
+![Demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 
 
 
