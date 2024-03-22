@@ -89,7 +89,9 @@ From the UI
     - Click Add Maven
     - Give it a name (like maven-3.9)
     - Select the version you want
+    - 
 ![08_image43.png](assets/08_image43.png)
+
     - Click save & this will dowload and make available
 *Note: You also have the option to add an installer via extract of a tar, run sh / bat command (server os pending) etc*
 
@@ -104,6 +106,7 @@ docker exec -it 8e1c bash
 docker exec -u 0 8e1c bash
 ```
 ![08_image44.png](assets/08_image44.png)
+
 a handy command to remember is the below, this cats the version you are running in a container
 ```bash
 cat etc/issue
@@ -119,6 +122,7 @@ we run nthe below, which downloads a node installer script, runs it, then instal
 curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh && bash nodesource_setup.sh && apt install nodejs -Y
 ```
 we can then run the node & npm with the -v flag
+
 ![08_image55.png](assets/08_image55.png)
 
 ## Jenkins Basics Demo - Freestyle job
@@ -131,7 +135,9 @@ we can then run the node & npm with the -v flag
 - In the next screen, this is where you can add your SCM, Triggers, Environment & build steps
     - Keep everything as default, and scroll to "Build Steps"
     - click the drop down menu here, and the below is displayed
+    - 
 ![08_image56.png](assets/08_image56.png)
+
     - select "execute shell"
         - these are execute inside the Jenkins container
     - pop in "npm --version"
@@ -139,14 +145,20 @@ we can then run the node & npm with the -v flag
     - click the drop down again, and select "Invoke top-level maven targets"
     - in the next drop down, select the maven we have configured (maven-3.9) and set the "goal" as --version
 as below:
+
 ![08_image57.png](assets/08_image57.png)
+
     - click save
     - heading back to the dashboard, we can see the list of jobs
 click it we are brought into the job itself:
+
 ![08_image45.png](08_image45.png)
+
 click "Build now" to run the job
     - click "Console Output" and we see the output
+    - 
 ![08_image46.png](assets/08_image46.png)
+
 **Remember**: /var/jenkins_home is the volume we created and mounted for this container
 
 ## Install a plugin via the plugins option in "manage jenkins"
@@ -155,10 +167,15 @@ From Dashboard, head to Manage Jenkins > then Plugins
 - Click available plugins
 - search NodeJs
 - tick the box and then click install (top right)
+
 ![08_image47.png](assets/08_image47.png)
+
 then going back to Tools, we can see a configuration for NodeJS, as below:
+
 ![08_image58.png](assets/08_image58.png)
+
 HEading back to my-job > Configure > scroll down to "Build steps", we can see from teh drop down menu we now have an option for "Execute NodeJS script" as below:
+
 ![08_image48.png](assets/08_image48.png)
 
 ## Configure Git Repository
@@ -168,20 +185,28 @@ HEading back to my-job > Configure > scroll down to "Build steps", we can see fr
     - Input the git url
     - Credentials:
     - If you dont have credentials saved, you can click add and Jenkins will go through the setup, via the below:
+
 ![08_image59.png](assets/08_image59.png)
+
     - From kind you have multiple options you can use:
+    - 
 ![08_image60.png](assets/08_image60.png)
+
     - We keep everything as default, and add the following:
         - Username, Password, Description (we can ref later)
     - next we can specify what branch we want to build, my master branch is called main so I change it
     - click save & Build now, the output is below:
+    - 
 ![08_image50.png](assets/08_image50.png)
+
     - In the outpt we can see:
         - Jenkins cloned my repo (saved to var/jenkins_home/workspaces/my-job - will get into this later)
         - ran the npm --version
         - ran the mvn --version
 - if we access the container (exec command), and ls to /var/jenkins_home we can see files that contain info on plugins, credentails, jobs, logs, etc
+- 
 ![08_image61.png](assets/08_image61.png)
+
 - Inside the jobs folder, will list all jobs created on the server, including their builds (every time you build the job it creates a new build) and an xml file that shows all the options used
 - If we look inside the workspaces folder and into the my-job folder we can see the cloned repo, in the my-job@tmp is a temporary folder 
 
@@ -189,8 +214,11 @@ HEading back to my-job > Configure > scroll down to "Build steps", we can see fr
 
 - head back to job configuration, change the branch specifier to */jenkins-jobs and go to Build steps and remove the npm --version command and add chmod +x on the script and add the script name to be executed
 - The reasoning behind the chmod is to give jenkins permissions to execute it, as below:
+- 
 ![08_image62.png](assets/08_image62.png)
+
 - click save and then "build now", output below:
+- 
 ![08_image63.png](assets/08_image63.png)
 
 ## Runs test & build Java Application
