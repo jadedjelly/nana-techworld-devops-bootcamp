@@ -188,23 +188,21 @@ HEading back to my-job > Configure > scroll down to "Build steps", we can see fr
 
 ![08_image59.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image59.png)
 
-    - From kind you have multiple options you can use:
-    - 
+- From kind you have multiple options you can use:
+    
 ![08_image60.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image60.png)
 
-    - We keep everything as default, and add the following:
+- We keep everything as default, and add the following:
         - Username, Password, Description (we can ref later)
     - next we can specify what branch we want to build, my master branch is called main so I change it
     - click save & Build now, the output is below:
-    - 
 ![08_image50.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image50.png)
-
-    - In the outpt we can see:
+- In the outpt we can see:
         - Jenkins cloned my repo (saved to var/jenkins_home/workspaces/my-job - will get into this later)
         - ran the npm --version
         - ran the mvn --version
 - if we access the container (exec command), and ls to /var/jenkins_home we can see files that contain info on plugins, credentails, jobs, logs, etc
-- 
+
 ![08_image61.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image61.png)
 
 - Inside the jobs folder, will list all jobs created on the server, including their builds (every time you build the job it creates a new build) and an xml file that shows all the options used
@@ -214,11 +212,10 @@ HEading back to my-job > Configure > scroll down to "Build steps", we can see fr
 
 - head back to job configuration, change the branch specifier to */jenkins-jobs and go to Build steps and remove the npm --version command and add chmod +x on the script and add the script name to be executed
 - The reasoning behind the chmod is to give jenkins permissions to execute it, as below:
-- 
+
 ![08_image62.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image62.png)
 
 - click save and then "build now", output below:
-- 
 ![08_image63.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image63.png)
 
 ## Runs test & build Java Application
