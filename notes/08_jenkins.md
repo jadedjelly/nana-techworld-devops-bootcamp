@@ -1069,19 +1069,28 @@ Configure Plugin for Maven & Install npm and Node in Jenkins Container
 [demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 
 When you create a new item / job you have multiple optiosn to choose from: (*Taken from Jenkins 2: Up & Running*)
+
 **Freestyle project**
-easiest to setup, relativley open way to projects can be constructed to do many differnt tasks, provides optiosn to execute shells
+- easiest to setup, relativley open way to projects can be constructed to do many differnt tasks, provides optiosn to execute shells
 **Pipeline**
-Manages long running jobs that can span multiple build agents, steps & logic stucture in groovy (can be stored externally in a Jenkinsfile)
+
+- Manages long running jobs that can span multiple build agents, steps & logic stucture in groovy (can be stored externally in a Jenkinsfile)
+
 **Multi-configuration project**
-great for jobs that have different configs, like testing on multiple enviros / platform specific needs, over multiple nodes / slaves, uses "axes" to define a definition type (*Slaves, label expression, user-define axis - pg 290 exaplins this*)
+- great for jobs that have different configs, like testing on multiple enviros / platform specific needs, over multiple nodes / slaves, uses "axes" to define a definition type (*Slaves, label expression, user-define axis - pg 290 exaplins this*)
 ***Recommend** - *testing with book code to see this in action if Nana doesn't*
+
 **Folder**
-Creates a folder for nested items / jobs (not pipeline or a project, more of a way to organise things)
+
+- Creates a folder for nested items / jobs (not pipeline or a project, more of a way to organise things)
+
 **Multibranch pipeline**
-Can automatically manage & build branches managed in SCM if it recognises them as Jenkins Projects, can also create new pipelines for each branch it detects in the repo, using a Jenkinsfile as a marker and scanning (aka branch indexing)
+
+- Can automatically manage & build branches managed in SCM if it recognises them as Jenkins Projects, can also create new pipelines for each branch it detects in the repo, using a Jenkinsfile as a marker and scanning (aka branch indexing)
+
 **Organization folder**
-Scans a repo, and groups projects as a "team", can setup triggers, or other parameters.
+
+- Scans a repo, and groups projects as a "team", can setup triggers, or other parameters.
 Easiest to think of it as a collection of *Multibranch pipeline projects*
 
 The below demos are available ![here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
