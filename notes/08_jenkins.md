@@ -1093,7 +1093,7 @@ When you create a new item / job you have multiple optiosn to choose from: (*Tak
 - Scans a repo, and groups projects as a "team", can setup triggers, or other parameters.
 Easiest to think of it as a collection of *Multibranch pipeline projects*
 
-The below demos are available ![here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_Jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
+The below demos are available ![here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 - Install a plugin via the plugins option in "manage jenkins"
 - Configure Git Repository
 - Complete task from git repo in Jenkins job
