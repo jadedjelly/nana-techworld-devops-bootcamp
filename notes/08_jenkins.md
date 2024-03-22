@@ -1032,16 +1032,57 @@ Publish Docker image > store creds in Jenkins
 ## Install Jenkins
 [demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#install-jenkins-on-digitalocean)
 
+## Intro to Jenkins UI
 
+2x roles in Jenkins:
+Jenkins Administrator (has an additional menu option, "Manage jenkins" - system, Install plugins, tools, creates users, view logs, credentials, etc)
+- Admins & manages 
+- Sets up Clusters
+- Installs plugins
+- Backups jenkisn data
 
+Jenkins User
+- Creates item / jobs / workflows
 
+## Install Build tools in Jenkins
 
+[demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 
+We have 2x examples:
+- a Java app: 
+    - this will need access to Maven tools in order to run test and package
+- a Javascript app:
+- this will need Node & npm tools, to run test, package & push to a repo
 
+Obviosuly, pending on the language your app is developed will dictate on what tools you will need installed / available & configured on Jenkins.
 
+2x ways to to install and configure these tools:
+- Jenkins Plugins
+    - Much easier to do, but is restrictive, done via the plugins menu
+- installed directly inside the container / server (installation pending)
+    - Longer to do, but far more flexible (more apparent during the demo)
 
+Configure Plugin for Maven & Install npm and Node in Jenkins Container
+[demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 
+## Jenkins Basics Demo - Freestyle job
+[demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 
+When you create a new item / job you have multiple optiosn to choose from: (*Taken from Jenkins 2: Up & Running*)
+**Freestyle project**
+easiest to setup, relativley open way to projects can be constructed to do many differnt tasks, provides optiosn to execute shells
+**Pipeline**
+Manages long running jobs that can span multiple build agents, steps & logic stucture in groovy (can be stored externally in a Jenkinsfile)
+**Multi-configuration project**
+great for jobs that have different configs, like testing on multiple enviros / platform specific needs, over multiple nodes / slaves, uses "axes" to define a definition type (*Slaves, label expression, user-define axis - pg 290 exaplins this*)
+***Recommend** - *testing with book code to see this in action if Nana doesn't*
+**Folder**
+Creates a folder for nested items / jobs (not pipeline or a project, more of a way to organise things)
+**Multibranch pipeline**
+Can automatically manage & build branches managed in SCM if it recognises them as Jenkins Projects, can also create new pipelines for each branch it detects in the repo, using a Jenkinsfile as a marker and scanning (aka branch indexing)
+**Organization folder**
+Scans a repo, and groups projects as a "team", can setup triggers, or other parameters.
+Easiest to think of it as a collection of *Multibranch pipeline projects*
 
 
 
