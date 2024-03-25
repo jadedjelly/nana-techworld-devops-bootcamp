@@ -1,4 +1,4 @@
-# Module 7 - Build Automation & CI/CD with Jenkins
+# Module 8 - Build Automation & CI/CD with Jenkins
 1. [Install Jenkins on DigitalOcean](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
 2. [Create a CI Pipeline with Jenkinsfile (Freestyle, Pipeline, Multibranch
 Pipeline)](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
@@ -292,7 +292,94 @@ As a next step we will push that image to a Docker Repo
 
 ![08_image68.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image68.png)
 
-====Paused 10:03 - Docker in jenkins====
+- Create a private repo on Dockerhub account, give it a name and set it to private
+
+![08_image69.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image69.png)
+
+- Then from Jenkins dashboard, go to Manage Jenkins > from the Security section, select Credentials > select "Global Credentials (unrestricted)" > You'll see the github -creds created earlier listed
+- Press "add Credentials"
+    - add username, password & give an id of "Docker-hub-repo"
+- Press Create
+- Go back to the "java-maven-build" job, press "configure"
+- Scroll to "execute shell", the way we push to a private repo, is to add it to the tag element as below: 
+```bash
+docker build -t jadedjelly/mod8-jenkins:1.0 .
+docker push jadedjelly/mod8-jenkins:1.0
+```
+- Obviously we need to login so Jenkins can use those credentials we just created so between the build and push we add docker login. If we're doing this from the temrinal we are prompted, we can't do that here so we need to enable another plugin (noted under "build Environment", "Use secret text(s) or files(s)", from the drop down box (as "Bindings"), as below:
+
+![08_image70.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image70.png)
+- and select > "Username & Password (seperated)"
+- Give the username & password variable names
+- From the drop down box, select the docker hub one
+NOTE: *When creating credentials, add a description to the creds as it appears in the drop down box as only [username]/[password] with no designation between the 2x when not done!!!*
+
+![08_image71.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image71.png)
+
+```bash
+docker build -t jadedjelly/mod8-jenkins:1.0 .
+docker login -u $USERNAME -p $PASSWORD
+docker push jadedjelly/mod8-jenkins:1.0
+```
+![08_image72.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image72.png)
+
+- pushing to an external repo like ecr / nexus etc you would amend the tag with the externals url as below:
+```bash
+docker push aws_account_id.dkr.ecr.us-west-2.amazonaws.com/my-repository:tag
+```
+- click save and Build now
+
+![08_image73.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image73.png)
+NOTE: *Authentication failed for me using Nana's method, changed password to be the access token*
+
+- This time it worked without issues (as below)
+![08_image74.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image74.png)
+
+Note: *Within the output we get a warning that the password via cli is insecure and should use --password-sdtin, the fix is below*
+
+- CHnaging the line for authentication we pipe the password variable into the docker login
+
+```bash
+docker build -t jadedjelly/mod8-jenkins:jma-1.0 .
+echo $PASSWORD | docker login -u $USERNAME --password-stdin
+docker push jadedjelly/mod8-jenkins:jma-1.0
+```
+
+- On test we get a success message
+
+## Push docker image to Nexus repo
+NOTE: *had to rebuild nexus server, this time as a docker image... *
+http://157.230.30.94:8081/repository/docker-hosted/
+- From the root of the jenkins server, we create a new file called daemon.json in /etc/docker/, with the below:
+```json
+}
+  "insecure-registries": ["157.230.30.94:8083"]
+}
+```
+- Recall [ip of Docker repo]:[port number be assigned for http]
+NOTE: *daemon.json = config file used by docker to specify settings to customize  the behaviour*
+NOTE2: *we add this to the host, we only mounted docker to jenkins!*
+- Now we restart docker so changes can be made
+    - systemctl restart docker
+    - also need to restart the container
+- We head back to Jenkins, and configure the "java-maven-build" to push to our Nexus repo
+- 1st we need to setup credentials so Jenkins can push to Nexus
+- From credentials we add one for Nexus
+
+![08_image75.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image75.png)
+- Head to the configuration for the java-maven-build, replace the dockerhub credentials with that of the newly created Nexus creds
+- From execute shell we need to ammend it for pushing to NExus
+```bash
+docker build -t 157.230.30.94:8083/java-maven-app:1.1 .
+echo $PASSWORD | docker login -u $USERNAME --password-stdin 157.230.30.94:8083
+docker push 157.230.30.94:8083/java-maven-app:1.1
+```
+- save & Build now
+![08_image76.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image76.png)
+![08_image77.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image77.png)
+![08_image78.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image78.png)
+
+
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
 ### Create a Jenkins Shared Library
