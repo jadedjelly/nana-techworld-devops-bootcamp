@@ -1,7 +1,7 @@
 # Module 8 - Build Automation & CI/CD with Jenkins
 1. [Install Jenkins on DigitalOcean](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
 2. [Create a CI Pipeline with Jenkinsfile (Freestyle, Pipeline, Multibranch
-Pipeline)](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
+Pipeline)](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 3. [Create a Jenkins Shared Library](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Create-a-Jenkins-Shared-Library)
 4. [Configure Webhook to trigger CI Pipeline automatically on
 every change](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Configure-Webhook-to-trigger-CI-Pipeline-automatically-on-every-change)
