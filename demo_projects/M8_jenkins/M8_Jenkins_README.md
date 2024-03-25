@@ -1,11 +1,11 @@
 # Module 8 - Build Automation & CI/CD with Jenkins
-1. [Install Jenkins on DigitalOcean](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
+1. [Install Jenkins on DigitalOcean](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_Jenkins/M8_Jenkins_README.md#Install-Jenkins-on-DigitalOcean)
 2. [Create a CI Pipeline with Jenkinsfile (Freestyle, Pipeline, Multibranch
 Pipeline)](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
-3. [Create a Jenkins Shared Library](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Create-a-Jenkins-Shared-Library)
+3. [Create a Jenkins Shared Library](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_Jenkins/M8_Jenkins_README.md#Create-a-Jenkins-Shared-Library)
 4. [Configure Webhook to trigger CI Pipeline automatically on
-every change](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Configure-Webhook-to-trigger-CI-Pipeline-automatically-on-every-change)
-5. [Dynamically Increment Application version in Jenkins Pipeline](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Docker/M8_Jenkins_README.md#Dynamically-Increment-Application-version-in-Jenkins-Pipeline)
+every change](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M7_Jenkins/M8_Jenkins_README.md#Configure-Webhook-to-trigger-CI-Pipeline-automatically-on-every-change)
+5. [Dynamically Increment Application version in Jenkins Pipeline](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_Jenkins/M8_Jenkins_README.md#Dynamically-Increment-Application-version-in-Jenkins-Pipeline)
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
 ### Install Jenkins on DigitalOcean
