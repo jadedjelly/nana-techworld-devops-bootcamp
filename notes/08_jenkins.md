@@ -1104,10 +1104,9 @@ So we need to have docker commands available to build docker images, so we need 
 able to use them. A common way to do this is to attach a volume to jenkins from the host file. 
 So we need to mount the docker.sock file to the container, but first we need to take the container down, and reattach it with this volume, as below (The demo linked below will show this )
 
-
-
 ![Demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 
+## Freestyle to pipeline job
 
 
 
