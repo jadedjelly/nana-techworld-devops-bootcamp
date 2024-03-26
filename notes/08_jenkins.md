@@ -1170,7 +1170,7 @@ Doing jobs via Jenkinsfile has a heap of benefits, can create complex logic, var
 
 In the next module, we will deep dive Jenkisn syntax
 
-## Jenkins Syntax
+## Jenkinsfile Syntax
 
 
 
