@@ -904,7 +904,8 @@ pipeline {
         }
 ```
 
-2nd stage:
+![08_image80.png](assets/08_image80.png)
+
 
 create the jar file
 
@@ -1107,10 +1108,69 @@ So we need to mount the docker.sock file to the container, but first we need to 
 ![Demo here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
 
 ## Freestyle to pipeline job
+*history lesson*
+- It's common for freestyle jobs to execute a single step
+- 1x freestyle for testing
+- 1x freestyle for building
+- etc
+Previously these were chained to execute one after the other
+- this was done via the "post build actions" > selecting "build other projects" from the drop down and inputting the name of the other build along with a condition (stable / unstable / fail), as below:
 
+![08_image79.png](assets/08_image79.png)
 
+- Freestyle jobs have limitations, that's mainly because these were UI tools, and scripting wasn't as prevalent as it is now
+- Also limited to input fields via plugins, as seen in the difference between a plugin installed via UI & installed on the server / container
 
+Then pipelines were created, changing the need to chain jobs, it also became more flexible, and allowed scripting (via Jenkinsfile)
 
+NOTE:
+*Going forward we will either use ECR or Dockerhub, Nexus server can be destroyed*
+
+## Intro to Pipeline Job
+The below demos are available ![here](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/demo_projects/M8_jenkins/M8_Jenkins_README.md#Create-a-CI-Pipeline-with-Jenkinsfile-(Freestyle,-Pipeline,-Multibranch-Pipeline))
+
+Nana is showing a demo on creating a pipeline
+- The difference between a Freestyle & pipeline configuration:
+    - Freestyle: has drop downs for Build steps, allowing you to choose a plugin or executing shell commands
+    - Pipeline: has a single section for inputting a script:
+        - written in groovy (similar to java, easier), known as Jenkinsfile
+
+## pipeline syntax
+- pipeline syntax comes in two types:
+    - scripted, or
+        - 1st syntax
+        - groovy engine
+        - advanced scripting capabilties, high flexibility
+        - difficult to start
+    - declarative
+        - more recent addition
+        - easier, but not as powerful
+        - predefined structure
+
+basic structure:
+```groovy
+pipeline { //must be top level
+
+    agent any /* where to execute - agent can be anything, node, server, etc (more relevant with clusters - masters & slaves) */
+// the above are required
+    stages { // where the work happens
+
+        stage("build") { // define stage name then steps for each stage
+
+            steps {
+
+            }
+        }
+    }
+}
+```
+
+Nana explains why one wouldn't just chain a bunch of jobs together (*but it's pretty obvious why*). Freestyle jobs aren't made for complex logic, they are there for simple jobs. It seems you can get really creative with your expressions (execute when / if etc), plus it's going through UI, you don't need much reason other than that, the whole point is to automate stuff not click box after box. Nana goes on about plugin management :S
+Doing jobs via Jenkinsfile has a heap of benefits, can create complex logic, variables, can use on differnt jobs, etc
+
+In the next module, we will deep dive Jenkisn syntax
+
+## Jenkins Syntax
 
 
 

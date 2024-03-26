@@ -379,6 +379,100 @@ docker push 157.230.30.94:8083/java-maven-app:1.1
 ![08_image77.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image77.png)
 ![08_image78.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image78.png)
 
+## Create pipeline job
+
+- New item > give it a name "my-pipeline" > select pipeline > click ok
+- Unlike freestyle jobs, pipelines uses scripts, from the dropdown menu, there's 2x options
+    - pipeline script
+    - pipeline script from scm (source code management)
+    - You can view the samples from the right drop down menu:
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+```
+
+NOTE:
+Below the script box, there's a check box called "groovy sandbox", it's tooltip describes it as:
+"*If checked, run this Groovy script in a sandbox with limited abilities. If unchecked, and you are not a Jenkins administrator, you will need to wait for an administrator to approve the script. *"
+
+- Best practice for IaC says that you should nt use inline pipeline scripts (scripts written directly into a pipeline) and should have it saved in your scm (understandable)
+
+- we select "pipeline script from SCM"
+    - input the git repo address: https://github.com/jadedjelly/Jenkins_Module8.git
+    - use the correct credentials
+- The Script path, is set to the newly created Jenkinsfile in the repo
+    - This contains the groovy script that configires the pipeline
+- click save
+- the Job fails because the Jenkisnfile doesn't exist
+
+- we create a simple Jenkinsfile on the repo, with the below:
+```groovy
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage("build") {
+
+            steps {
+              echo "building the application..."
+
+            }
+        }
+        stage("test") {
+
+            steps {
+              echo "testing the application..."
+            }
+        }
+        stage("deploy") {
+
+            steps {
+              echo "deploying the application..."
+            }
+        }
+    }
+}
+```
+- The build is a success and we can see the output below:
+
+![08_image81.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image81.png)
+
+- There's also a new output, that shows each stage that we defined (build, test, deploy) & this will show if it failed or not
+
+![08_image82.png](https://github.com/jadedjelly/nana-techworld-devops-bootcamp/blob/main/notes/assets/08_image82.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---------------------------------------------------------------------------------------------------
 ## Demo Project: 
