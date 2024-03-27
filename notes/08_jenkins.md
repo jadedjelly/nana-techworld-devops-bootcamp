@@ -1172,41 +1172,350 @@ In the next module, we will deep dive Jenkisn syntax
 
 ## Jenkinsfile Syntax
 
+Post attributes in Jenkinsfile
+-----------------------------------------------------------------------------------------------
+
+```groovy
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage("build") {
+
+            steps {
+              echo "building the application..."
+
+            }
+        }
+        stage("test") {
+
+            steps {
+              echo "testing the application..."
+            }
+        }
+        stage("deploy") {
+
+            steps {
+              echo "deploying the application..."
+            }
+        }
+    }
+    post {
+        always {
+            
+        }
+    }
+}
+```
+
+- At the end of the jenkins file (as above) you can define a post attribute
+- after all stages are executed you can add conditional logic, to say "always" send an email to x, regardless of outcome of the stages.
+- You can also define a condition "success" or "failure" (and there's a few more). But generally it's conditions are either on build status or build status changes
+
+Another very useful thing is to define conditionals for each stage
+- Say you only want to run tests on a development build not the production build, what you can do is add a "when" expression inside the test block
+
+```groovy
+stage("test") {
+    when {
+        expression {
+            BRANCH_NAME == 'dev' || BRANCH_NAME == 'master'
+        }
+    }
+    steps {
+         echo "testing the application..."
+            }
+        }
+```
+
+- Jenkins has environment variables, in the above case "BRANCH_NAME" or env.BRANCH_NAME
+
+[offical list of Env variables for Jenkins](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables)
+
+- so you could add the above to test if its the dev branch (rememeber it returns boolean values)
+**NOTE: || is an "or" operator**
+
+- Another common use case, is to execute if there are code changes (*not sure why she's doing it this way instead of using a trigger....*) see below 
+
+```groovy
+stage("test") {
+    when {
+        expression {
+            BRANCH_NAME == 'dev' && CODE_CHANGES == true
+        }
+    }
+    steps {
+         echo "testing the application..."
+            }
+        }
+```
+
+the CODE_CHANGES is defined outside of the pipeline (as below)
+
+```groovy
+CODE_CHANGES = getGitChanges()
+pipeline {}
+```
+
+Environment variables (VIP concept)
+-----------------------------------------------------------------------------------------------
+[offical list of Env variables for Jenkins](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables)
+
+- You can also get the above from your url, by adding /env-vars.html to the end, thought the above link is from the offical docs
+- You can also define your own Env variables
+- This is done inside the Jenkinsfile ar the top, below agent, as below:
+
+```groovy
+pipeline {
+    agent any
+    environment {
+        // anything you define here can be used throughout the file
+        NEW_VERSION = '1.3.0'
+    }
+    stage("build") {
+
+        steps {
+            echo "building the application..."
+            echo "building version ${NEW_VERSION}"
+            echo 'building version ${NEW_VERSION}'
+            // while you can't see it here, inside an ide you can see how the color change between the 2 above
+
+            }
+        }
+}
+
+```
+
+**NOTE:** If you want a variable to be used use double quotes "", if you want it to be used as a string use single ''
+- another common Env variable, is using it with credentials
+    - define 1st in the Jenkins UI
+    - then call the funtion credentials (as below)
+    - it's a plugin, you need to install via the UI (called ["Credential Binding Plugin"](https://plugins.jenkins.io/credentials-binding/)
+**NOTE: This seems to have been installed from the suggested plugins on 1st run**
+    - there's also another plugin, called "Credentials Plugin", which allows you to store credentials on Jenkisn (also installed at 1st run)
+    - "credentials("credentialid")" binds the creds to your env var
+
+```groovy
+pipeline {
+    agent any
+    environment {
+        NEW_VERSION = '1.3.0'
+        SERVER_CREDENTIALS = credentials('github-creds')
+    }
+```
+
+- During the creation of credentials on Jenkins, there's a txt box called "ID" this is the ID you refrence within the Jenkins file
+- If you need those creds only in one stage, it makes sense to only read it from that stage, so you would define it in the stage block, using "withCredentials" known as "wrapper syntax", see below:
+
+```groovy
+        stage("deploy") {
+
+            steps {
+              echo "deploying the application..."
+              withCredentials([
+                  // takes a parameter [] as an object, basically a function, that retrives it individually
+                  // using the credentials ID
+                  usernamePassword(credentials: 'github-creds', usernameVariable: USER, passwordVariable: PWD)
+              ]) {
+                // then inside here, we can use the varibales defined above
+                sh "a script ${USER} ${PWD}"
+              }
+            }
+        }
+```
+Tools Attributes for Build Tools
+-----------------------------------------------------------------------------------------------
+- Provides you with build tools for your project, maven, gradle, etc
+
+**NOTE: remember in a freestyle project you use the plugins, in the pipeline your calling these tools**
+
+- The same as Env varibales, its situated outside stages
+- These have to be preconfigured in Jenkisn in order to use
+    - When we installed maven inside of tools, we gave our maven installation a name
+
+![08_image83.png](assets/08_image83.png)
 
 
+```groovy
+pipeline {
+    agent any
+    tools {
+        // jenkinsfile currently **only** supports, gradle, maven & jdk
+        // anyother tools you need to do it a different way (note this when your building NuGet pipes)
+        maven "maven-3.9"
+    }
+}
+```
+
+parameters in Jenkinsfile
+-----------------------------------------------------------------------------------------------
+- Maybe you have some ext configurations you want to provide to the build to change some behaviour, you have a build that deploy your app to a staging server and you want to be able to select which version you want to deploy
+
+[offical doc on Parameters](https://www.jenkins.io/doc/book/pipeline/syntax/#available-parameters)
 
 
+```groovy
+pipeline {
+    agent any
+    parameters {
+        string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+        // see offical docs above for other options
+    }
+}
+```
 
+- and we can use the parameters in a when expression (as below)
+    - If execute test parameters is set to true, only then we run tests if not, skip it
 
+```groovy
+pipeline {   
+    agent any
+    parameters {
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    }
+    stages {
+        stage("build") {
+            steps {
+                echo "Building the application...."
+            }
+        }  
+        stage("test") {
+            when {
+                expression {
+                    params.executeTests
+                }
+            }
+            steps {
+                    echo "Testing the application...."                   
+                }
+            }
+        stage("deploy") {
+            steps {
+                echo 'deploying the applciation...'
+                echo "deploying version ${params.VERSION}"
+                }
+            }
+        }               
+    }
+```
 
+- Before runing the above, when we refresh the page a new option is available, as below:
 
+![08_image84.png](assets/08_image84.png)
 
+- clicking in to it, we also have a drop down, asking what version to execute & a tick box to execute tests or not
 
+![08_image85.png](assets/08_image85.png)
 
+![08_image86.png](assets/08_image86.png)
 
+Using External Groovy Scripts
+-----------------------------------------------------------------------------------------------
 
+- A scenario, you have a jenkinsfile, it's got scripts building frontend, backend, running tests, building Docker images, and all the logic that goes with it, the Jenkinsfile is getting big now.
+    - The way to do this is to segregate all teh groovy scripts into its own file, decreaing the size of the Jenkinsfile
+- you do this by using script blocks
 
+```groovy
+...
+    stages {
+        stage("build") {
+            steps {
+                script {
+                    
+                }
+                echo "Building the application...."
+            }
+        }  
+...
+```
+- we will extract the echos to a groovy script just to see it in action
+- **All env var in Jenkinsfile are available in the groovy script**
+- You can also extract the expression (when) to the groovy script
 
+Below, is the Jenkinsfile
+```groovy
+def gv
+pipeline {   
+    agent any
+    parameters {
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    }
+    stages {
+        stage("init") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
+        stage("build") {
+            steps {
+                script {
+                    gv.buildApp
+                }
+            }
+        }   
+        stage("test") {
+            when {
+                expression {
+                    params.executeTests
+                }
+            }
+            steps {
+                script {
+                    gv.testApp
+                }                
+                }
+            }
+        stage("deploy") {
+            steps {
+                script {
+                    gv.deployApp
+                }
+                }
+            }
+        }               
+    }
+```
 
+Below, the groovy script (named script.groovy)
+```groovy
+def buildApp() {
+    echo 'building the application'
+}
+def testApp() {
+    echo 'testing the application'
+}
+def deployApp() {
+    echo 'deploying the applciation...'
+    echo "deploying version ${params.VERSION}"
+}
+return this
 
+```
 
+![08_image87.png](assets/08_image87.png)
 
+- If we go to one of the previous builds, there's an option to "replay" where it will display the Jenkinsfile in edit mode, so that I can make changes on the fly without pushing those changes
 
+![08_image88.png](assets/08_image88.png)
 
+- the above is also the same, if I click the build that included the groovy script
 
+Input parameter in Jenkinsfile
+-----------------------------------------------------------------------------------------------
+Say we have a pipeline that builds an app, tests it, builds an image of it, push to a repo, then you want to give a user the option to choose what env you want to deploy it to
 
+![08_image89.png](assets/08_image89.png)
 
-
-
-
-
-
-
-
-
-
-
-
+=== Paused: Jenkins Syntax - 26:28
 
 
 
